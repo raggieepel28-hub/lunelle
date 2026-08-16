@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fdf7fa;
+  color: #715e67;
+  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN",
+    "Yu Gothic", sans-serif;
+  letter-spacing: 0.03em;
+}
+
+/* header */
+
+header {
+  padding: 24px 20px 16px;
+  text-align: center;
+  background: #fffafb;
+  border-bottom: 1px solid #f1dfe5;
+}
+
+.brand {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #b77f95;
+  letter-spacing: 0.08em;
+}
+
+.tagline {
+  margin-top: 5px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
+  color: #b9a0aa;
+  letter-spacing: 0.14em;
+}
+
+/* navigation */
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #fffafb;
+}
+
+nav button {
+  border: none;
+  background: #f4e3e9;
+  color: #9d7183;
+  padding: 7px 14px;
+  border-radius: 20px;
+}
+
+/* main */
+
+main {
+  width: min(94%, 520px);
+  margin: 18px auto 30px;
+}
+
+/* cards */
+
+.card {
+  background: #ffffff;
+  border: 1px solid #f1e1e6;
+  border-radius: 22px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 5px 18px rgba(180, 130, 150, 0.08);
+}
+
+h1,
+h2 {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+  color: #a87589;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+
+/* calendar */
+
+.month-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.month-row button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #f4e1e8;
+  color: #a87589;
+  font-size: 22px;
+}
+
+.week,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.week {
+  margin: 18px 0 7px;
+  text-align: center;
+  font-size: 10px;
+  color: #b99aa7;
+}
+
+.days > div {
+  min-height: 54px;
+  padding: 5px;
+  border-radius: 13px;
+  background: #fff9fb;
+  font-size: 12px;
+}
+
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.calendar-day.today {
+  background: #f1d7e1;
+  color: #875b6e;
+  font-weight: 700;
+}
+
+.calendar-day.selected {
+  outline: 2px solid #d5a5b6;
+}
+
+.calendar-emoji {
+  display: block;
+  margin-top: 5px;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+/* forms */
+
+.addform {
+  display: flex;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.addform input,
+.addform select,
+textarea {
+  min-width: 0;
+  border: 1px solid #ead6de;
+  border-radius: 13px;
+  padding: 10px;
+  background: #fffafb;
+  color: #715e67;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.addform input {
+  flex: 1;
+}
+
+.addform select {
+  width: 58px;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.addform button {
+  width: 42px;
+  border: none;
+  border-radius: 13px;
+  background: #d8a8b8;
+  color: #ffffff;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 19px;
+}
+
+/* input text */
+
+input::placeholder,
+textarea::placeholder {
+  color: #c3a8b3;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 400;
+}
+
+#plan,
+#todos,
+#memo {
+  font-family: "Zen Maru Gothic", sans-serif;
+  color: #715e67;
+}
+
+/* plans & todo */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f5e8ec;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item button {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #c69aaa;
+  font-size: 17px;
+}
+
+/* memo */
+
+textarea {
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+/* footer */
+
+footer {
+  padding: 16px;
+  text-align: center;
+  color: #b99aa7;
+  font-family: "Quicksand", sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 0.12em;
+}
