@@ -464,5 +464,5 @@ memoEl.addEventListener("input", () => {
 ========================= */
 
 renderCalendar();
-
 renderData();
+renderSchedule();
