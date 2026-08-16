@@ -299,3 +299,24 @@ button {
 footer {
   font-family: "Quicksand", sans-serif;
 }
+body,
+body * {
+  font-family: "Zen Maru Gothic", sans-serif !important;
+}
+
+input,
+select,
+textarea,
+button,
+.item,
+#plan,
+#todos,
+#memo,
+.calendar-day {
+  font-family: "Zen Maru Gothic", sans-serif !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: "Zen Maru Gothic", sans-serif !important;
+}
