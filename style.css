@@ -178,3 +178,18 @@ footer {
   font-size: 11px;
   letter-spacing: 1px;
 }
+.calendar-day {
+  position: relative;
+  min-height: 52px;
+  padding: 5px;
+  border-radius: 12px;
+  background: #fff9fb;
+  font-size: 12px;
+}
+
+.calendar-emoji {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1;
+  text-align: center;
+}
