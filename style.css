@@ -213,3 +213,71 @@ footer {
   font-size: 16px;
   line-height: 18px;
 }
+/* ───────────────
+   Lunelle 手帳風フォント
+──────────────── */
+
+body {
+  font-family:
+    "Hiragino Maru Gothic ProN",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.brand {
+  font-family:
+    "Hiragino Maru Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.tagline {
+  font-family:
+    "Georgia",
+    "Times New Roman",
+    serif;
+  font-style: italic;
+  letter-spacing: 0.12em;
+}
+
+h1,
+h2 {
+  font-family:
+    "Hiragino Maru Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family:
+    "Hiragino Maru Gothic ProN",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+}
+
+.addform input,
+.addform select,
+textarea {
+  letter-spacing: 0.04em;
+}
+
+.item {
+  letter-spacing: 0.03em;
+}
+
+footer {
+  font-family:
+    "Georgia",
+    "Times New Roman",
+    serif;
+  font-style: italic;
+}
