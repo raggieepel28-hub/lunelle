@@ -366,3 +366,11 @@ footer {
   text-align: center;
   font-size: 12px;
 }
+.calendar-mood {
+  margin-top: 2px;
+  color: #c18da1;
+  font-family: serif;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+}
