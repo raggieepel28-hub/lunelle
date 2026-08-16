@@ -466,3 +466,87 @@ memoEl.addEventListener("input", () => {
 renderCalendar();
 renderData();
 renderSchedule();
+/* =========================
+   Mood & Diary
+========================= */
+
+const moodChoices = document.querySelectorAll("#moodChoices button");
+const selectedMoodEl = document.getElementById("selectedMood");
+const diaryEl = document.getElementById("diary");
+
+
+function renderMoodDiary() {
+
+  const key = dateKey(selectedDate);
+
+  const savedMood =
+    localStorage.getItem(`mood-${key}`) || "";
+
+  const savedDiary =
+    localStorage.getItem(`diary-${key}`) || "";
+
+
+  /* Mood */
+
+  moodChoices.forEach(button => {
+
+    button.classList.toggle(
+      "active",
+      button.dataset.mood === savedMood
+    );
+
+  });
+
+
+  selectedMoodEl.textContent =
+    savedMood
+      ? `今日の気分 ${savedMood}`
+      : "今日の気分を選んでね ♡";
+
+
+  /* Diary */
+
+  diaryEl.value = savedDiary;
+
+}
+
+
+/* Moodを選択 */
+
+moodChoices.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const key = dateKey(selectedDate);
+
+    const mood = button.dataset.mood;
+
+    localStorage.setItem(
+      `mood-${key}`,
+      mood
+    );
+
+    renderMoodDiary();
+
+  });
+
+});
+
+
+/* Diaryを保存 */
+
+diaryEl.addEventListener("input", () => {
+
+  const key = dateKey(selectedDate);
+
+  localStorage.setItem(
+    `diary-${key}`,
+    diaryEl.value
+  );
+
+});
+
+
+/* 初期表示 */
+
+renderMoodDiary();
