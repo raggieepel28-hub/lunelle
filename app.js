@@ -463,9 +463,15 @@ memoEl.addEventListener("input", () => {
    初期表示
 ========================= */
 
+selectedDate = date;
+
 renderCalendar();
+
 renderData();
+
 renderSchedule();
+
+renderMoodDiary();
 /* =========================
    Mood & Diary
 ========================= */
