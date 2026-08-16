@@ -260,3 +260,52 @@ footer {
   font-style: italic;
   letter-spacing: 0.12em;
 }
+/* ───────────────
+   Daily Schedule
+──────────────── */
+
+.schedule-card {
+  background: #fffafb;
+}
+
+#schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 58px 34px 1fr 25px;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px 10px;
+  border-radius: 15px;
+  background: #fff;
+  border: 1px solid #f1dfe5;
+}
+
+.schedule-time {
+  color: #b77f95;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.schedule-emoji {
+  font-size: 18px;
+  text-align: center;
+}
+
+.schedule-text {
+  color: #715e67;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.schedule-delete {
+  border: none;
+  background: transparent;
+  color: #c69aaa;
+  font-size: 16px;
+}
