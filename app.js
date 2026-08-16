@@ -107,7 +107,89 @@ if (plans.length > 0) {
     cell.addEventListener("click", () => {
 
       selectedDate = date;
+/* =========================
+   Daily Schedule
+========================= */
 
+const scheduleEl = document.getElementById("schedule");
+const scheduleForm = document.getElementById("scheduleForm");
+
+function renderSchedule() {
+
+  if (!scheduleEl) return;
+
+  const key = dateKey(selectedDate);
+
+  const schedules = getData(`schedules-${key}`)
+    .sort((a, b) => a.time.localeCompare(b.time));
+
+  scheduleEl.innerHTML = "";
+
+  schedules.forEach((schedule, index) => {
+
+    const item = document.createElement("div");
+
+    item.className = "schedule-item";
+
+    item.innerHTML = `
+      <span class="schedule-time">${schedule.time}</span>
+
+      <span class="schedule-emoji">${schedule.emoji || "♡"}</span>
+
+      <span class="schedule-text">${schedule.text}</span>
+
+      <button
+        class="schedule-delete"
+        onclick="deleteSchedule(${index})"
+      >×</button>
+    `;
+
+    scheduleEl.appendChild(item);
+
+  });
+}
+
+
+scheduleForm.addEventListener("submit", (e) => {
+
+  e.preventDefault();
+
+  const key = dateKey(selectedDate);
+
+  const schedules = getData(`schedules-${key}`);
+
+  schedules.push({
+
+    time: document.getElementById("scheduleTime").value,
+
+    text: document.getElementById("scheduleText").value,
+
+    emoji: document.getElementById("scheduleEmoji").value
+
+  });
+
+  saveData(`schedules-${key}`, schedules);
+
+  scheduleForm.reset();
+
+  renderSchedule();
+
+});
+
+
+function deleteSchedule(index) {
+
+  const key = dateKey(selectedDate);
+
+  const schedules = getData(`schedules-${key}`);
+
+  schedules.splice(index, 1);
+
+  saveData(`schedules-${key}`, schedules);
+
+  renderSchedule();
+
+}
       renderCalendar();
 
       renderData();
