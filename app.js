@@ -93,18 +93,14 @@ function renderCalendar() {
 
     const plans = getData(`plans-${dateKey(date)}`);
 
-    if (plans.length > 0) {
+if (plans.length > 0) {
+  const emojiBox = document.createElement("div");
 
-      const emojiBox = document.createElement("div");
+  emojiBox.className = "calendar-emoji";
+  emojiBox.textContent = plans[0].emoji || "♡";
 
-      emojiBox.className = "calendar-emoji";
-
-      emojiBox.textContent = plans[0].emoji || "♡";
-
-      cell.appendChild(emojiBox);
-
-    }
-
+  cell.appendChild(emojiBox);
+}
 
     /* 日付クリック */
 
