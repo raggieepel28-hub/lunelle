@@ -92,7 +92,22 @@ function renderCalendar() {
     /* 予定の絵文字 */
 
     const plans = getData(`plans-${dateKey(date)}`);
+/* Mood */
 
+const savedMood =
+  localStorage.getItem(`mood-${dateKey(date)}`) || "";
+
+if (savedMood) {
+
+  const moodBox = document.createElement("div");
+
+  moodBox.className = "calendar-mood";
+
+  moodBox.textContent = savedMood;
+
+  cell.appendChild(moodBox);
+
+}
 if (plans.length > 0) {
   const emojiBox = document.createElement("div");
 
