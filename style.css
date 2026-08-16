@@ -281,3 +281,21 @@ footer {
     serif;
   font-style: italic;
 }
+body {
+  font-family: "Zen Maru Gothic", sans-serif;
+}
+
+.brand,
+h1,
+h2,
+input,
+select,
+textarea,
+button {
+  font-family: "Zen Maru Gothic", sans-serif;
+}
+
+.tagline,
+footer {
+  font-family: "Quicksand", sans-serif;
+}
