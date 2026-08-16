@@ -1,0 +1,10 @@
+{
+  "name": "Lunelle",
+  "short_name": "Lunelle",
+  "description": "your little days",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fdf7fa",
+  "theme_color": "#d8a8b8",
+  "orientation": "portrait"
+}
