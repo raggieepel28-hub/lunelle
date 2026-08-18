@@ -18,6 +18,20 @@ const moodChoices = document.querySelectorAll("#moodChoices button");
 const selectedMoodEl = document.getElementById("selectedMood");
 const diaryEl = document.getElementById("diary");
 
+const homeDate = document.getElementById("homeDate");
+const homeWeek = document.getElementById("homeWeek");
+const homeGreeting = document.getElementById("homeGreeting");
+const homeMood = document.getElementById("homeMood");
+const homeNextSchedule = document.getElementById("homeNextSchedule");
+const homeTodoCount = document.getElementById("homeTodoCount");
+const homeProgress = document.getElementById("homeProgress");
+const homeDiary = document.getElementById("homeDiary");
+
+const tabs = document.querySelectorAll(".tab");
+const pages = document.querySelectorAll(".page");
+const goCalendar = document.getElementById("goCalendar");
+
+
 let currentDate = new Date();
 let selectedDate = new Date();
 
@@ -27,17 +41,96 @@ let selectedDate = new Date();
 ========================= */
 
 function dateKey(date) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+  return `${date.getFullYear()}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(
+    date.getDate()
+  ).padStart(2, "0")}`;
+
 }
 
 
 function getData(key) {
-  return JSON.parse(localStorage.getItem(key) || "[]");
+
+  return JSON.parse(
+    localStorage.getItem(key) || "[]"
+  );
+
 }
 
 
 function saveData(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
+
+  localStorage.setItem(
+    key,
+    JSON.stringify(data)
+  );
+
+}
+
+
+/* =========================
+   ページ切り替え
+========================= */
+
+function showPage(pageId) {
+
+  pages.forEach(page => {
+
+    page.style.display =
+      page.id === pageId
+        ? "block"
+        : "none";
+
+  });
+
+
+  tabs.forEach(tab => {
+
+    tab.classList.toggle(
+      "active",
+      tab.dataset.page === pageId
+    );
+
+  });
+
+
+  if (pageId === "homePage") {
+
+    renderHome();
+
+  }
+
+
+  if (pageId === "diaryPage") {
+
+    renderDiaryArchive();
+
+  }
+
+}
+
+
+tabs.forEach(tab => {
+
+  tab.addEventListener("click", () => {
+
+    showPage(tab.dataset.page);
+
+  });
+
+});
+
+
+if (goCalendar) {
+
+  goCalendar.addEventListener("click", () => {
+
+    showPage("calendarPage");
+
+  });
+
 }
 
 
@@ -50,21 +143,27 @@ function renderCalendar() {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
-  monthEl.textContent = `${year}年 ${month + 1}月`;
+  monthEl.textContent =
+    `${year}年 ${month + 1}月`;
 
   daysEl.innerHTML = "";
 
-  const firstDay = new Date(year, month, 1).getDay();
-  const lastDate = new Date(year, month + 1, 0).getDate();
+  const firstDay =
+    new Date(year, month, 1).getDay();
+
+  const lastDate =
+    new Date(year, month + 1, 0).getDate();
 
 
-  /* 月初までの空白 */
+  /* 月初の空白 */
 
   for (let i = 0; i < firstDay; i++) {
 
-    const empty = document.createElement("div");
+    const empty =
+      document.createElement("div");
 
-    empty.style.background = "transparent";
+    empty.style.background =
+      "transparent";
 
     daysEl.appendChild(empty);
 
@@ -73,29 +172,41 @@ function renderCalendar() {
 
   /* 日付 */
 
-  for (let day = 1; day <= lastDate; day++) {
+  for (
+    let day = 1;
+    day <= lastDate;
+    day++
+  ) {
 
-    const date = new Date(year, month, day);
+    const date =
+      new Date(year, month, day);
 
-    const key = dateKey(date);
+    const key =
+      dateKey(date);
 
-    const cell = document.createElement("div");
+    const cell =
+      document.createElement("div");
 
-    cell.className = "calendar-day";
+    cell.className =
+      "calendar-day";
 
 
     /* 日付 */
 
-    const number = document.createElement("div");
+    const number =
+      document.createElement("div");
 
-    number.textContent = day;
+    number.textContent =
+      day;
 
     cell.appendChild(number);
 
 
     /* 今日 */
 
-    if (key === dateKey(new Date())) {
+    if (
+      key === dateKey(new Date())
+    ) {
 
       cell.classList.add("today");
 
@@ -104,24 +215,30 @@ function renderCalendar() {
 
     /* 選択中 */
 
-    if (key === dateKey(selectedDate)) {
+    if (
+      key === dateKey(selectedDate)
+    ) {
 
       cell.classList.add("selected");
 
     }
 
 
-    /* 予定の絵文字 */
+    /* 予定マーク */
 
-    const plans = getData(`plans-${key}`);
+    const plans =
+      getData(`plans-${key}`);
 
     if (plans.length > 0) {
 
-      const emojiBox = document.createElement("div");
+      const emojiBox =
+        document.createElement("div");
 
-      emojiBox.className = "calendar-emoji";
+      emojiBox.className =
+        "calendar-emoji";
 
-      emojiBox.textContent = plans[0].emoji || "♡";
+      emojiBox.textContent =
+        plans[0].emoji || "♡";
 
       cell.appendChild(emojiBox);
 
@@ -131,33 +248,42 @@ function renderCalendar() {
     /* Mood */
 
     const savedMood =
-      localStorage.getItem(`mood-${key}`) || "";
+      localStorage.getItem(
+        `mood-${key}`
+      ) || "";
 
     if (savedMood) {
 
-      const moodBox = document.createElement("div");
+      const moodBox =
+        document.createElement("div");
 
-      moodBox.className = "calendar-mood";
+      moodBox.className =
+        "calendar-mood";
 
-      moodBox.textContent = savedMood;
+      moodBox.textContent =
+        savedMood;
 
       cell.appendChild(moodBox);
 
     }
 
 
-    /* 日付クリック */
+    /* クリック */
 
-    cell.addEventListener("click", () => {
+    cell.addEventListener(
+      "click",
+      () => {
 
-      selectedDate = date;
+        selectedDate = date;
 
-      renderCalendar();
-      renderData();
-      renderSchedule();
-      renderMoodDiary();
+        renderCalendar();
+        renderData();
+        renderSchedule();
+        renderMoodDiary();
+        renderHome();
 
-    });
+      }
+    );
 
 
     daysEl.appendChild(cell);
@@ -171,90 +297,113 @@ function renderCalendar() {
    月移動
 ========================= */
 
-prevBtn.addEventListener("click", () => {
+prevBtn.addEventListener(
+  "click",
+  () => {
 
-  currentDate.setMonth(currentDate.getMonth() - 1);
+    currentDate.setMonth(
+      currentDate.getMonth() - 1
+    );
 
-  renderCalendar();
+    renderCalendar();
 
-});
+  }
+);
 
 
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener(
+  "click",
+  () => {
 
-  currentDate.setMonth(currentDate.getMonth() + 1);
+    currentDate.setMonth(
+      currentDate.getMonth() + 1
+    );
 
-  renderCalendar();
+    renderCalendar();
 
-});
+  }
+);
 
 
 /* =========================
-   予定・Todo・Memo表示
+   Plan / Todo / Memo
 ========================= */
 
 function renderData() {
 
-  const key = dateKey(selectedDate);
+  const key =
+    dateKey(selectedDate);
 
 
-  /* Plans */
+  /* Plan */
 
-  const plans = getData(`plans-${key}`);
+  const plans =
+    getData(`plans-${key}`);
 
   planEl.innerHTML = "";
 
-  plans.forEach((plan, index) => {
+  plans.forEach(
+    (plan, index) => {
 
-    const item = document.createElement("div");
+      const item =
+        document.createElement("div");
 
-    item.className = "item";
+      item.className =
+        "item";
 
-    item.innerHTML = `
-      <span>${plan.emoji || "♡"}</span>
-      <span>${plan.time}</span>
-      <span>${plan.text}</span>
-      <button onclick="deletePlan(${index})">×</button>
-    `;
+      item.innerHTML = `
+        <span>${plan.emoji || "♡"}</span>
+        <span>${plan.time}</span>
+        <span>${plan.text}</span>
+        <button onclick="deletePlan(${index})">×</button>
+      `;
 
-    planEl.appendChild(item);
+      planEl.appendChild(item);
 
-  });
+    }
+  );
 
 
   /* Todo */
 
-  const todos = getData(`todos-${key}`);
+  const todos =
+    getData(`todos-${key}`);
 
   todoEl.innerHTML = "";
 
-  todos.forEach((todo, index) => {
+  todos.forEach(
+    (todo, index) => {
 
-    const item = document.createElement("div");
+      const item =
+        document.createElement("div");
 
-    item.className = "item";
+      item.className =
+        "item";
 
-    item.innerHTML = `
-      <input
-        type="checkbox"
-        ${todo.done ? "checked" : ""}
-        onchange="toggleTodo(${index})"
-      >
+      item.innerHTML = `
+        <input
+          type="checkbox"
+          ${todo.done ? "checked" : ""}
+          onchange="toggleTodo(${index})"
+        >
 
-      <span>${todo.text}</span>
+        <span>${todo.text}</span>
 
-      <button onclick="deleteTodo(${index})">×</button>
-    `;
+        <button onclick="deleteTodo(${index})">×</button>
+      `;
 
-    todoEl.appendChild(item);
+      todoEl.appendChild(item);
 
-  });
+    }
+  );
 
 
   /* Memo */
 
   memoEl.value =
-    localStorage.getItem(`memo-${key}`) || "";
+    localStorage.getItem(
+      `memo-${key}`
+    ) || "";
 
 }
 
@@ -267,169 +416,221 @@ function renderSchedule() {
 
   if (!scheduleEl) return;
 
-  const key = dateKey(selectedDate);
+  const key =
+    dateKey(selectedDate);
 
-  const schedules = getData(`schedules-${key}`)
-    .sort((a, b) => a.time.localeCompare(b.time));
+  const schedules =
+    getData(`schedules-${key}`)
+      .sort(
+        (a, b) =>
+          a.time.localeCompare(b.time)
+      );
 
   scheduleEl.innerHTML = "";
 
-  schedules.forEach((schedule, index) => {
+  schedules.forEach(
+    (schedule, index) => {
 
-    const item = document.createElement("div");
+      const item =
+        document.createElement("div");
 
-    item.className = "schedule-item";
+      item.className =
+        "schedule-item";
 
-    item.innerHTML = `
-      <span class="schedule-time">
-        ${schedule.time}
-      </span>
+      item.innerHTML = `
+        <span class="schedule-time">
+          ${schedule.time}
+        </span>
 
-      <span class="schedule-emoji">
-        ${schedule.emoji || "♡"}
-      </span>
+        <span class="schedule-emoji">
+          ${schedule.emoji || "♡"}
+        </span>
 
-      <span class="schedule-text">
-        ${schedule.text}
-      </span>
+        <span class="schedule-text">
+          ${schedule.text}
+        </span>
 
-      <button
-        class="schedule-delete"
-        onclick="deleteSchedule(${index})"
-      >
-        ×
-      </button>
-    `;
+        <button
+          class="schedule-delete"
+          onclick="deleteSchedule(${index})"
+        >
+          ×
+        </button>
+      `;
 
-    scheduleEl.appendChild(item);
+      scheduleEl.appendChild(item);
 
-  });
+    }
+  );
 
 }
 
-
-/* Daily Schedule追加 */
 
 if (scheduleForm) {
 
-  scheduleForm.addEventListener("submit", (e) => {
+  scheduleForm.addEventListener(
+    "submit",
+    event => {
 
-    e.preventDefault();
+      event.preventDefault();
 
-    const key = dateKey(selectedDate);
+      const key =
+        dateKey(selectedDate);
 
-    const schedules = getData(`schedules-${key}`);
+      const schedules =
+        getData(`schedules-${key}`);
 
-    schedules.push({
+      schedules.push({
 
-      time:
-        document.getElementById("scheduleTime").value,
+        time:
+          document.getElementById(
+            "scheduleTime"
+          ).value,
 
-      text:
-        document.getElementById("scheduleText").value,
+        text:
+          document.getElementById(
+            "scheduleText"
+          ).value,
 
-      emoji:
-        document.getElementById("scheduleEmoji").value
+        emoji:
+          document.getElementById(
+            "scheduleEmoji"
+          ).value || "♡"
 
-    });
+      });
 
-    saveData(`schedules-${key}`, schedules);
+      saveData(
+        `schedules-${key}`,
+        schedules
+      );
 
-    scheduleForm.reset();
+      scheduleForm.reset();
 
-    renderSchedule();
+      renderSchedule();
+      renderHome();
 
-  });
+    }
+  );
 
 }
 
 
-/* Daily Schedule削除 */
-
 function deleteSchedule(index) {
 
-  const key = dateKey(selectedDate);
+  const key =
+    dateKey(selectedDate);
 
-  const schedules = getData(`schedules-${key}`);
+  const schedules =
+    getData(`schedules-${key}`);
 
   schedules.splice(index, 1);
 
-  saveData(`schedules-${key}`, schedules);
+  saveData(
+    `schedules-${key}`,
+    schedules
+  );
 
   renderSchedule();
+  renderHome();
 
 }
 
 
 /* =========================
-   予定追加
+   Plan追加
 ========================= */
 
-planForm.addEventListener("submit", (e) => {
+planForm.addEventListener(
+  "submit",
+  event => {
 
-  e.preventDefault();
+    event.preventDefault();
 
-  const key = dateKey(selectedDate);
+    const key =
+      dateKey(selectedDate);
 
-  const plans = getData(`plans-${key}`);
+    const plans =
+      getData(`plans-${key}`);
 
-  plans.push({
+    plans.push({
 
-    time:
-      document.getElementById("planTime").value,
+      time:
+        document.getElementById(
+          "planTime"
+        ).value,
 
-    text:
-      document.getElementById("planText").value,
+      text:
+        document.getElementById(
+          "planText"
+        ).value,
 
-    emoji:
-      planEmoji ? planEmoji.value : "♡"
+      emoji:
+        planEmoji
+          ? planEmoji.value || "♡"
+          : "♡"
 
-  });
+    });
 
-  saveData(`plans-${key}`, plans);
+    saveData(
+      `plans-${key}`,
+      plans
+    );
 
-  planForm.reset();
+    planForm.reset();
 
-  if (planEmoji) {
+    if (planEmoji) {
 
-    planEmoji.value = "♡";
+      planEmoji.value = "♡";
+
+    }
+
+    renderCalendar();
+    renderData();
+    renderHome();
 
   }
-
-  renderCalendar();
-  renderData();
-
-});
+);
 
 
 /* =========================
    Todo追加
 ========================= */
 
-todoForm.addEventListener("submit", (e) => {
+todoForm.addEventListener(
+  "submit",
+  event => {
 
-  e.preventDefault();
+    event.preventDefault();
 
-  const key = dateKey(selectedDate);
+    const key =
+      dateKey(selectedDate);
 
-  const todos = getData(`todos-${key}`);
+    const todos =
+      getData(`todos-${key}`);
 
-  todos.push({
+    todos.push({
 
-    text:
-      document.getElementById("todoText").value,
+      text:
+        document.getElementById(
+          "todoText"
+        ).value,
 
-    done: false
+      done: false
 
-  });
+    });
 
-  saveData(`todos-${key}`, todos);
+    saveData(
+      `todos-${key}`,
+      todos
+    );
 
-  todoForm.reset();
+    todoForm.reset();
 
-  renderData();
+    renderData();
+    renderHome();
 
-});
+  }
+);
 
 
 /* =========================
@@ -438,16 +639,22 @@ todoForm.addEventListener("submit", (e) => {
 
 function deletePlan(index) {
 
-  const key = dateKey(selectedDate);
+  const key =
+    dateKey(selectedDate);
 
-  const plans = getData(`plans-${key}`);
+  const plans =
+    getData(`plans-${key}`);
 
   plans.splice(index, 1);
 
-  saveData(`plans-${key}`, plans);
+  saveData(
+    `plans-${key}`,
+    plans
+  );
 
   renderCalendar();
   renderData();
+  renderHome();
 
 }
 
@@ -458,15 +665,22 @@ function deletePlan(index) {
 
 function toggleTodo(index) {
 
-  const key = dateKey(selectedDate);
+  const key =
+    dateKey(selectedDate);
 
-  const todos = getData(`todos-${key}`);
+  const todos =
+    getData(`todos-${key}`);
 
-  todos[index].done = !todos[index].done;
+  todos[index].done =
+    !todos[index].done;
 
-  saveData(`todos-${key}`, todos);
+  saveData(
+    `todos-${key}`,
+    todos
+  );
 
   renderData();
+  renderHome();
 
 }
 
@@ -477,15 +691,21 @@ function toggleTodo(index) {
 
 function deleteTodo(index) {
 
-  const key = dateKey(selectedDate);
+  const key =
+    dateKey(selectedDate);
 
-  const todos = getData(`todos-${key}`);
+  const todos =
+    getData(`todos-${key}`);
 
   todos.splice(index, 1);
 
-  saveData(`todos-${key}`, todos);
+  saveData(
+    `todos-${key}`,
+    todos
+  );
 
   renderData();
+  renderHome();
 
 }
 
@@ -494,45 +714,57 @@ function deleteTodo(index) {
    Memo
 ========================= */
 
-memoEl.addEventListener("input", () => {
+memoEl.addEventListener(
+  "input",
+  () => {
 
-  const key = dateKey(selectedDate);
+    const key =
+      dateKey(selectedDate);
 
-  localStorage.setItem(
-    `memo-${key}`,
-    memoEl.value
-  );
+    localStorage.setItem(
+      `memo-${key}`,
+      memoEl.value
+    );
 
-});
+  }
+);
 
 
 /* =========================
-   Mood & Diary
+   Mood
 ========================= */
 
 function renderMoodDiary() {
 
-  if (!selectedMoodEl || !diaryEl) return;
+  if (!selectedMoodEl || !diaryEl) {
+    return;
+  }
 
-  const key = dateKey(selectedDate);
+  const key =
+    dateKey(selectedDate);
 
   const savedMood =
-    localStorage.getItem(`mood-${key}`) || "";
+    localStorage.getItem(
+      `mood-${key}`
+    ) || "";
 
   const savedDiary =
-    localStorage.getItem(`diary-${key}`) || "";
+    localStorage.getItem(
+      `diary-${key}`
+    ) || "";
 
 
-  /* Mood */
+  moodChoices.forEach(
+    button => {
 
-  moodChoices.forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.mood ===
+        savedMood
+      );
 
-    button.classList.toggle(
-      "active",
-      button.dataset.mood === savedMood
-    );
-
-  });
+    }
+  );
 
 
   selectedMoodEl.textContent =
@@ -541,50 +773,329 @@ function renderMoodDiary() {
       : "今日の気分を選んでね ♡";
 
 
-  /* Diary */
-
-  diaryEl.value = savedDiary;
+  diaryEl.value =
+    savedDiary;
 
 }
 
 
-/* Mood選択 */
+moodChoices.forEach(
+  button => {
 
-moodChoices.forEach(button => {
+    button.addEventListener(
+      "click",
+      () => {
 
-  button.addEventListener("click", () => {
+        const key =
+          dateKey(selectedDate);
 
-    const key = dateKey(selectedDate);
+        const mood =
+          button.dataset.mood;
 
-    const mood = button.dataset.mood;
+        localStorage.setItem(
+          `mood-${key}`,
+          mood
+        );
 
-    localStorage.setItem(
-      `mood-${key}`,
-      mood
+        renderMoodDiary();
+        renderCalendar();
+        renderHome();
+
+      }
     );
 
-    renderMoodDiary();
-    renderCalendar();
+  }
+);
 
-  });
-
-});
-
-
-/* Diary保存 */
 
 if (diaryEl) {
 
-  diaryEl.addEventListener("input", () => {
+  diaryEl.addEventListener(
+    "input",
+    () => {
 
-    const key = dateKey(selectedDate);
+      const key =
+        dateKey(selectedDate);
 
-    localStorage.setItem(
-      `diary-${key}`,
-      diaryEl.value
+      localStorage.setItem(
+        `diary-${key}`,
+        diaryEl.value
+      );
+
+      renderHome();
+
+    }
+  );
+
+}
+
+
+/* =========================
+   Home
+========================= */
+
+function renderHome() {
+
+  const key =
+    dateKey(selectedDate);
+
+  const date =
+    selectedDate;
+
+
+  /* 日付 */
+
+  if (homeDate) {
+
+    homeDate.textContent =
+      `${date.getMonth() + 1} / ${date.getDate()}`;
+
+  }
+
+
+  /* 曜日 */
+
+  if (homeWeek) {
+
+    const weeks = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+
+    homeWeek.textContent =
+      weeks[date.getDay()];
+
+  }
+
+
+  /* 挨拶 */
+
+  if (homeGreeting) {
+
+    const hour =
+      new Date().getHours();
+
+    if (hour < 11) {
+
+      homeGreeting.textContent =
+        "Good morning ♡";
+
+    } else if (hour < 18) {
+
+      homeGreeting.textContent =
+        "Good afternoon ♡";
+
+    } else {
+
+      homeGreeting.textContent =
+        "Good evening ♡";
+
+    }
+
+  }
+
+
+  /* Mood */
+
+  const mood =
+    localStorage.getItem(
+      `mood-${key}`
+    ) || "";
+
+  if (homeMood) {
+
+    homeMood.textContent =
+      mood
+        ? mood
+        : "今日の気分を選んでね ♡";
+
+  }
+
+
+  /* Schedule */
+
+  if (homeNextSchedule) {
+
+    const schedules =
+      getData(`schedules-${key}`)
+        .sort(
+          (a, b) =>
+            a.time.localeCompare(b.time)
+        );
+
+    if (schedules.length === 0) {
+
+      homeNextSchedule.textContent =
+        "今日の予定はまだないよ ♡";
+
+    } else {
+
+      const next =
+        schedules[0];
+
+      homeNextSchedule.textContent =
+        `${next.time}  ${next.emoji || "♡"}  ${next.text}`;
+
+    }
+
+  }
+
+
+  /* Todo */
+
+  const todos =
+    getData(`todos-${key}`);
+
+  const total =
+    todos.length;
+
+  const completed =
+    todos.filter(
+      todo => todo.done
+    ).length;
+
+
+  if (homeTodoCount) {
+
+    homeTodoCount.textContent =
+      `${completed} / ${total}`;
+
+  }
+
+
+  if (homeProgress) {
+
+    const percentage =
+      total === 0
+        ? 0
+        : (completed / total) * 100;
+
+    homeProgress.style.width =
+      `${percentage}%`;
+
+  }
+
+
+  /* Diary */
+
+  const diary =
+    localStorage.getItem(
+      `diary-${key}`
+    ) || "";
+
+  if (homeDiary) {
+
+    homeDiary.textContent =
+      diary
+        ? diary
+        : "今日のことを書いてみよう ♡";
+
+  }
+
+}
+
+
+/* =========================
+   Diary Archive
+========================= */
+
+function renderDiaryArchive() {
+
+  const archive =
+    document.getElementById(
+      "diaryArchive"
     );
 
-  });
+  if (!archive) return;
+
+  archive.innerHTML = "";
+
+  const entries = [];
+
+  for (
+    let i = 0;
+    i < localStorage.length;
+    i++
+  ) {
+
+    const key =
+      localStorage.key(i);
+
+    if (
+      key &&
+      key.startsWith("diary-")
+    ) {
+
+      const diary =
+        localStorage.getItem(key);
+
+      if (diary) {
+
+        entries.push({
+          date:
+            key.replace(
+              "diary-",
+              ""
+            ),
+
+          text:
+            diary
+        });
+
+      }
+
+    }
+
+  }
+
+
+  entries.sort(
+    (a, b) =>
+      b.date.localeCompare(a.date)
+  );
+
+
+  if (entries.length === 0) {
+
+    archive.innerHTML = `
+      <p>
+        まだDiaryがないよ ♡
+      </p>
+    `;
+
+    return;
+
+  }
+
+
+  entries.forEach(
+    entry => {
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "diary-entry";
+
+      item.innerHTML = `
+        <div class="diary-entry-date">
+          ${entry.date}
+        </div>
+
+        <div class="diary-entry-text">
+          ${entry.text}
+        </div>
+      `;
+
+      archive.appendChild(item);
+
+    }
+  );
 
 }
 
@@ -594,6 +1105,13 @@ if (diaryEl) {
 ========================= */
 
 renderCalendar();
+
 renderData();
+
 renderSchedule();
+
 renderMoodDiary();
+
+renderHome();
+
+showPage("homePage");
