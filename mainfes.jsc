@@ -1,10 +1,16 @@
 {
   "name": "Lunelle",
   "short_name": "Lunelle",
-  "description": "your little days",
-  "start_url": "./",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#fdf7fa",
+  "background_color": "#fff7fa",
   "theme_color": "#d8a8b8",
-  "orientation": "portrait"
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "1536x1536",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
