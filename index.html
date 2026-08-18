@@ -17,6 +17,15 @@
 
 <link rel="manifest" href="manifest.json">
 
+<!-- ふわふわ丸文字 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+  rel="stylesheet"
+>
+
 <title>Lunelle</title>
 
 <link rel="stylesheet" href="style.css">
@@ -25,6 +34,7 @@
 
 
 <body>
+
 
 <header>
 
@@ -49,6 +59,7 @@
     ☾ Home
   </button>
 
+
   <button
     type="button"
     class="tab"
@@ -57,6 +68,7 @@
     ♡ Calendar
   </button>
 
+
   <button
     type="button"
     class="tab"
@@ -64,6 +76,7 @@
   >
     📝 Diary
   </button>
+
 
   <button
     type="button"
@@ -74,6 +87,7 @@
   </button>
 
 </nav>
+
 
 
 <main>
@@ -88,6 +102,7 @@
   class="page"
 >
 
+
   <div class="home-date">
 
     <div id="homeDate"></div>
@@ -101,6 +116,7 @@
   </div>
 
 
+
   <section class="card">
 
     <h2>♡ Today's Mood</h2>
@@ -112,6 +128,7 @@
   </section>
 
 
+
   <section class="card">
 
     <h2>⏰ Next</h2>
@@ -121,6 +138,7 @@
     </div>
 
   </section>
+
 
 
   <section class="card">
@@ -140,6 +158,7 @@
   </section>
 
 
+
   <section class="card">
 
     <h2>📝 Today's Diary</h2>
@@ -151,12 +170,14 @@
   </section>
 
 
+
   <button
     id="goCalendar"
     type="button"
   >
     ♡ Open Calendar
   </button>
+
 
 </section>
 
@@ -175,19 +196,29 @@
 
   <section class="card calendar-card">
 
+
     <div class="month-row">
 
-      <button id="prev" type="button">
+      <button
+        id="prev"
+        type="button"
+      >
         ‹
       </button>
 
+
       <h1 id="month"></h1>
 
-      <button id="next" type="button">
+
+      <button
+        id="next"
+        type="button"
+      >
         ›
       </button>
 
     </div>
+
 
 
     <div class="week">
@@ -203,10 +234,12 @@
     </div>
 
 
+
     <div
       id="days"
       class="days"
     ></div>
+
 
   </section>
 
@@ -232,17 +265,20 @@
         required
       >
 
+
       <input
         id="scheduleText"
         placeholder="この時間にしたいこと"
         required
       >
 
+
       <input
         id="scheduleEmoji"
         placeholder="♡"
         maxlength="4"
       >
+
 
       <button type="submit">
         ＋
@@ -274,17 +310,20 @@
         required
       >
 
+
       <input
         id="planText"
         placeholder="この時間にしたいこと"
         required
       >
 
+
       <input
         id="planEmoji"
         placeholder="♡"
         maxlength="4"
       >
+
 
       <button type="submit">
         ＋
@@ -302,29 +341,53 @@
 
     <h2>♡ Today's Mood</h2>
 
+
     <div id="moodChoices">
 
-      <button type="button" data-mood="♡">
+      <button
+        type="button"
+        data-mood="♡"
+      >
         ♡
       </button>
 
-      <button type="button" data-mood="୨୧">
+
+      <button
+        type="button"
+        data-mood="୨୧"
+      >
         ୨୧
       </button>
 
-      <button type="button" data-mood="✧">
+
+      <button
+        type="button"
+        data-mood="✧"
+      >
         ✧
       </button>
 
-      <button type="button" data-mood="☾">
+
+      <button
+        type="button"
+        data-mood="☾"
+      >
         ☾
       </button>
 
-      <button type="button" data-mood="☁">
+
+      <button
+        type="button"
+        data-mood="☁"
+      >
         ☁
       </button>
 
-      <button type="button" data-mood="𓂃">
+
+      <button
+        type="button"
+        data-mood="𓂃"
+      >
         𓂃
       </button>
 
@@ -344,6 +407,7 @@
   <section class="card">
 
     <h2>📝 Today's Diary</h2>
+
 
     <textarea
       id="diary"
@@ -374,6 +438,7 @@
         required
       >
 
+
       <button type="submit">
         ＋
       </button>
@@ -390,12 +455,14 @@
 
     <h2>📝 Memo</h2>
 
+
     <textarea
       id="memo"
       placeholder="今日のことを自由に書いてね…"
     ></textarea>
 
   </section>
+
 
 </section>
 
@@ -411,6 +478,7 @@
   style="display:none"
 >
 
+
   <section class="card">
 
     <h2>📝 Diary</h2>
@@ -419,9 +487,11 @@
       little memories of your days ♡
     </p>
 
+
     <div id="diaryArchive"></div>
 
   </section>
+
 
 </section>
 
@@ -437,9 +507,11 @@
   style="display:none"
 >
 
+
   <section class="card">
 
     <h2>୨୧ 推し活</h2>
+
 
     <p>
       推しとの毎日をかわいく記録しよう ♡
@@ -462,18 +534,24 @@
 
   </section>
 
+
 </section>
 
 
 </main>
 
 
+
 <footer>
+
   🌙 made for little days 🌙
+
 </footer>
 
 
+
 <script src="app.js"></script>
+
 
 </body>
 
