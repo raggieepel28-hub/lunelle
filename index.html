@@ -1,86 +1,223 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#d8a8b8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover"
+>
+
+<meta
+  name="theme-color"
+  content="#d8a8b8"
+>
+
+<link
+  rel="manifest"
+  href="manifest.json"
+>
+
 <title>Lunelle</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="style.css"
+>
 
-<link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
 </head>
+
 
 <body>
 
+<!-- =========================
+     Header
+========================= -->
+
 <header>
-  <div class="brand">☾ <span>Lunelle</span></div>
-  <div class="tagline">your little days</div>
+
+  <div class="brand">
+    ☾ <span>Lunelle</span>
+  </div>
+
+  <div class="tagline">
+    your little days
+  </div>
+
 </header>
 
-<nav id="tabs"></nav>
-<section id="homePage" class="home-page">
+
+<!-- =========================
+     Navigation
+========================= -->
+
+<nav id="tabs">
+
+  <button
+    type="button"
+    class="tab active"
+    data-page="homePage"
+  >
+    ☾ Home
+  </button>
+
+  <button
+    type="button"
+    class="tab"
+    data-page="calendarPage"
+  >
+    ♡ Calendar
+  </button>
+
+  <button
+    type="button"
+    class="tab"
+    data-page="diaryPage"
+  >
+    📝 Diary
+  </button>
+
+  <button
+    type="button"
+    class="tab"
+    data-page="oshikatsuPage"
+  >
+    ୨୧ 推し活
+  </button>
+
+</nav>
+
+
+<main>
+
+
+<!-- ==================================================
+     HOME
+================================================== -->
+
+<section
+  id="homePage"
+  class="page home-page"
+>
+
+
+  <!-- 日付 -->
 
   <div class="home-date">
-    <div id="homeDate"></div>
-    <div id="homeGreeting">Good evening ♡</div>
+
+    <div
+      id="homeDate"
+      class="home-date-number"
+    >
+      8 / 18
+    </div>
+
+    <div
+      id="homeWeek"
+      class="home-week"
+    >
+      Tuesday
+    </div>
+
+    <div
+      id="homeGreeting"
+      class="home-greeting"
+    >
+      Good evening ♡
+    </div>
+
   </div>
 
 
+  <!-- Mood -->
+
   <section class="card home-mood-card">
 
-    <h2>♡ Today's Mood</h2>
+    <h2>
+      ♡ Today's Mood
+    </h2>
 
-    <div id="homeMood" class="home-mood">
+    <div
+      id="homeMood"
+      class="home-mood"
+    >
       今日の気分を選んでね ♡
     </div>
 
   </section>
 
 
+  <!-- Next Schedule -->
+
   <section class="card">
 
-    <h2>⏰ Next</h2>
+    <h2>
+      ⏰ Next
+    </h2>
 
-    <div id="homeNextSchedule" class="home-next">
+    <div
+      id="homeNextSchedule"
+      class="home-next"
+    >
       今日の予定はまだないよ ♡
     </div>
 
   </section>
 
 
+  <!-- Todo -->
+
   <section class="card">
 
-    <h2>☑ Today</h2>
+    <h2>
+      ☑ Today
+    </h2>
 
     <div class="home-todo-count">
 
-      <span id="homeTodoCount">0 / 0</span>
+      <span id="homeTodoCount">
+        0 / 0
+      </span>
 
-      <span>completed</span>
+      <span>
+        completed
+      </span>
 
     </div>
 
+
     <div class="home-progress">
-      <div id="homeProgress"></div>
+
+      <div
+        id="homeProgress"
+      ></div>
+
     </div>
 
   </section>
 
 
+  <!-- Diary -->
+
   <section class="card home-diary-card">
 
-    <h2>📝 Today's Diary</h2>
+    <h2>
+      📝 Today's Diary
+    </h2>
 
-    <div id="homeDiary">
+    <div
+      id="homeDiary"
+      class="home-diary"
+    >
       今日のことを書いてみよう ♡
     </div>
 
   </section>
 
+
+  <!-- Calendarへ -->
 
   <button
     id="goCalendar"
@@ -90,197 +227,471 @@
     ♡ Open Calendar
   </button>
 
+
 </section>
-<main>
 
- <section class="card schedule-card">
-  <h2>♡ Daily Schedule</h2>
 
-  <div id="schedule"></div>
 
-  <form id="scheduleForm" class="addform">
+<!-- ==================================================
+     CALENDAR
+================================================== -->
 
-    <input id="scheduleTime" type="time" required>
+<section
+  id="calendarPage"
+  class="page"
+  style="display:none;"
+>
 
-    <input
-      id="scheduleText"
-      placeholder="この時間にすること"
-      required
+
+  <!-- Calendar -->
+
+  <section class="card calendar-card">
+
+    <div class="month-row">
+
+      <button
+        id="prev"
+        type="button"
+      >
+        ‹
+      </button>
+
+      <h1 id="month"></h1>
+
+      <button
+        id="next"
+        type="button"
+      >
+        ›
+      </button>
+
+    </div>
+
+
+    <div class="week">
+
+      <span>Sun</span>
+      <span>Mon</span>
+      <span>Tue</span>
+      <span>Wed</span>
+      <span>Thu</span>
+      <span>Fri</span>
+      <span>Sat</span>
+
+    </div>
+
+
+    <div
+      id="days"
+      class="days"
+    ></div>
+
+  </section>
+
+
+
+  <!-- Daily Schedule -->
+
+  <section class="card">
+
+    <h2>
+      ⏰ Daily Schedule
+    </h2>
+
+
+    <div
+      id="schedule"
+      class="schedule"
+    ></div>
+
+
+    <form
+      id="scheduleForm"
+      class="addform"
     >
 
-    <select id="scheduleEmoji">
-      <option value="♡">♡</option>
-      <option value="🎀">🎀</option>
-      <option value="💗">💗</option>
-      <option value="🌷">🌷</option>
-      <option value="☕">☕</option>
-      <option value="🍰">🍰</option>
-      <option value="🎮">🎮</option>
-      <option value="🛍️">🛍️</option>
-      <option value="🛁">🛁</option>
-      <option value="💻">💻</option>
-      <option value="📚">📚</option>
-      <option value="⭐">⭐</option>
-    </select>
+      <input
+        id="scheduleTime"
+        type="time"
+        required
+      >
 
-    <button type="submit">＋</button>
+      <input
+        id="scheduleText"
+        placeholder="この時間にしたいこと"
+        required
+      >
 
-  </form>
-</section> 
-<section class="card calendar-card">
+      <input
+        id="scheduleEmoji"
+        placeholder="♡"
+        maxlength="4"
+        style="width:55px;text-align:center;"
+      >
 
-  <div class="month-row">
-    <button id="prev">‹</button>
-    <h1 id="month"></h1>
-    <button id="next">›</button>
-  </div>
+      <button
+        type="submit"
+      >
+        ＋
+      </button>
 
-  <div class="week">
-    <span>Sun</span>
-    <span>Mon</span>
-    <span>Tue</span>
-    <span>Wed</span>
-    <span>Thu</span>
-    <span>Fri</span>
-    <span>Sat</span>
-  </div>
+    </form>
 
-  <div id="days" class="days"></div>
-
-</section>
+  </section>
 
 
-<section class="card">
 
-  <h2>♡ Today's Plan</h2>
+  <!-- Today's Plan -->
 
-  <div id="plan"></div>
+  <section class="card">
 
-  <form id="planForm" class="addform">
+    <h2>
+      ♡ Today's Plan
+    </h2>
 
-    <input
-      id="planTime"
-      type="time"
-      required
+
+    <div
+      id="plan"
+    ></div>
+
+
+    <form
+      id="planForm"
+      class="addform"
     >
 
-    <input
-      id="planText"
-      placeholder="この時間にしたいこと"
-      required
+      <input
+        id="planTime"
+        type="time"
+        required
+      >
+
+      <input
+        id="planText"
+        placeholder="この時間にしたいこと"
+        required
+      >
+
+      <input
+        id="planEmoji"
+        placeholder="♡"
+        maxlength="4"
+        style="width:55px;text-align:center;"
+      >
+
+      <button
+        type="submit"
+      >
+        ＋
+      </button>
+
+    </form>
+
+  </section>
+
+
+
+  <!-- Mood -->
+
+  <section class="card mood-card">
+
+    <h2>
+      ♡ Today's Mood
+    </h2>
+
+
+    <div
+      id="moodChoices"
+      class="mood-choices"
     >
 
-    <select id="planEmoji">
-      <option value="♡">♡</option>
-      <option value="🎀">🎀</option>
-      <option value="💗">💗</option>
-      <option value="🛍️">🛍️</option>
-      <option value="🍰">🍰</option>
-      <option value="📝">📝</option>
-      <option value="⭐">⭐</option>
-      <option value="🌷">🌷</option>
-      <option value="☕">☕</option>
-      <option value="🎮">🎮</option>
-    </select>
-
-    <button type="submit">＋</button>
-
-  </form>
-
-</section>
+      <button
+        type="button"
+        data-mood="♡"
+      >
+        <span>♡</span>
+        <small>Happy</small>
+      </button>
 
 
-<section class="card">
+      <button
+        type="button"
+        data-mood="୨୧"
+      >
+        <span>୨୧</span>
+        <small>Sweet</small>
+      </button>
 
-  <h2>☑ To Do</h2>
 
-  <div id="todos"></div>
+      <button
+        type="button"
+        data-mood="✧"
+      >
+        <span>✧</span>
+        <small>Fine</small>
+      </button>
 
-  <form id="todoForm" class="addform">
 
-    <input
-      id="todoText"
-      placeholder="新しいTodo…"
-      required
+      <button
+        type="button"
+        data-mood="☾"
+      >
+        <span>☾</span>
+        <small>Sleepy</small>
+      </button>
+
+
+      <button
+        type="button"
+        data-mood="☁"
+      >
+        <span>☁</span>
+        <small>Blue</small>
+      </button>
+
+
+      <button
+        type="button"
+        data-mood="𓂃"
+      >
+        <span>𓂃</span>
+        <small>Tired</small>
+      </button>
+
+    </div>
+
+
+    <div
+      id="selectedMood"
+      class="selected-mood"
+    >
+      今日の気分を選んでね ♡
+    </div>
+
+  </section>
+
+
+
+  <!-- Diary -->
+
+  <section class="card diary-card">
+
+    <h2>
+      📝 Today's Diary
+    </h2>
+
+
+    <textarea
+      id="diary"
+      placeholder="今日はどんな1日だった？&#10;&#10;嬉しかったこと、頑張ったこと、推しのこと…&#10;自由に書いてね ♡"
+    ></textarea>
+
+  </section>
+
+
+
+  <!-- Todo -->
+
+  <section class="card">
+
+    <h2>
+      ☑ To Do
+    </h2>
+
+
+    <div
+      id="todos"
+    ></div>
+
+
+    <form
+      id="todoForm"
+      class="addform"
     >
 
-    <button type="submit">＋</button>
+      <input
+        id="todoText"
+        placeholder="新しいTodo…"
+        required
+      >
 
-  </form>
+      <button
+        type="submit"
+      >
+        ＋
+      </button>
 
-</section>
+    </form>
 
-<section class="card mood-card">
+  </section>
 
-  <h2>♡ Today's Mood</h2>
 
-  <div id="moodChoices" class="mood-choices">
 
-  <button type="button" data-mood="♡">
-    <span>♡</span>
-    <small>Happy</small>
-  </button>
+  <!-- Memo -->
 
-  <button type="button" data-mood="୨୧">
-    <span>୨୧</span>
-    <small>Sweet</small>
-  </button>
+  <section class="card">
 
-  <button type="button" data-mood="✧">
-    <span>✧</span>
-    <small>Fine</small>
-  </button>
+    <h2>
+      📝 Memo
+    </h2>
 
-  <button type="button" data-mood="☾">
-    <span>☾</span>
-    <small>Sleepy</small>
-  </button>
 
-  <button type="button" data-mood="☁">
-    <span>☁</span>
-    <small>Blue</small>
-  </button>
+    <textarea
+      id="memo"
+      placeholder="今日のことを自由に書いてね…"
+    ></textarea>
 
-  <button type="button" data-mood="𓂃">
-    <span>𓂃</span>
-    <small>Tired</small>
-  </button>
+  </section>
 
-</div>
-
-  <div id="selectedMood" class="selected-mood"></div>
 
 </section>
 
 
-<section class="card diary-card">
 
-  <h2>📝 Today's Diary</h2>
+<!-- ==================================================
+     DIARY
+================================================== -->
 
-  <textarea
-    id="diary"
-    placeholder="今日はどんな1日だった？&#10;&#10;嬉しかったこと、頑張ったこと、推しのこと…&#10;自由に書いてね ♡"
-  ></textarea>
+<section
+  id="diaryPage"
+  class="page"
+  style="display:none;"
+>
+
+
+  <section class="card">
+
+    <h2>
+      📝 Diary
+    </h2>
+
+
+    <p class="diary-intro">
+      little memories of your days ♡
+    </p>
+
+
+    <div
+      id="diaryArchive"
+      class="diary-archive"
+    >
+
+      <p>
+        カレンダーから日付を選んで、
+        その日のDiaryを書いてみてね ♡
+      </p>
+
+    </div>
+
+  </section>
+
 
 </section>
-<section class="card">
 
-  <h2>📝 Memo</h2>
 
-  <textarea
-    id="memo"
-    placeholder="今日のことを自由に書いてね…"
-  ></textarea>
+
+<!-- ==================================================
+     OSHIKATSU
+================================================== -->
+
+<section
+  id="oshikatsuPage"
+  class="page"
+  style="display:none;"
+>
+
+
+  <section class="card">
+
+    <h2>
+      ୨୧ 推し活
+    </h2>
+
+
+    <p class="oshikatsu-message">
+      推しとの毎日をかわいく記録しよう ♡
+    </p>
+
+
+    <div class="oshi-box">
+
+      <div class="oshi-icon">
+        ♡
+      </div>
+
+      <div>
+        <strong>
+          My Oshi
+        </strong>
+
+        <p>
+          ここに推し活メモを追加できるよ ♡
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="oshi-box">
+
+      <div class="oshi-icon">
+        🎀
+      </div>
+
+      <div>
+        <strong>
+          推し活 To Do
+        </strong>
+
+        <p>
+          グッズ・現場・写真・取引など
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="oshi-box">
+
+      <div class="oshi-icon">
+        ✧
+      </div>
+
+      <div>
+        <strong>
+          推し活 Memo
+        </strong>
+
+        <p>
+          推しのことを自由に残そう ♡
+        </p>
+      </div>
+
+    </div>
+
+
+  </section>
+
 
 </section>
+
 
 </main>
+
+
+
+<!-- =========================
+     Footer
+========================= -->
 
 <footer>
   🌙 made for little days 🌙
 </footer>
 
+
+
 <script src="app.js"></script>
 
 </body>
+
 </html>
