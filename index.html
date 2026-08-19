@@ -51,35 +51,19 @@
 
 <nav id="tabs">
 
-  <button
-    type="button"
-    class="tab active"
-    data-page="homePage"
-  >
+  <button type="button" class="tab active" data-page="homePage">
     ☾ Home
   </button>
 
-  <button
-    type="button"
-    class="tab"
-    data-page="calendarPage"
-  >
+  <button type="button" class="tab" data-page="calendarPage">
     ♡ Calendar
   </button>
 
-  <button
-    type="button"
-    class="tab"
-    data-page="diaryPage"
-  >
+  <button type="button" class="tab" data-page="diaryPage">
     📝 Diary
   </button>
 
-  <button
-    type="button"
-    class="tab"
-    data-page="oshikatsuPage"
-  >
+  <button type="button" class="tab" data-page="oshikatsuPage">
     ୨୧ 推し活
   </button>
 
@@ -94,10 +78,7 @@
      HOME
 ========================= -->
 
-<section
-  id="homePage"
-  class="page"
->
+<section id="homePage" class="page">
 
   <div class="home-date">
 
@@ -160,10 +141,7 @@
   </section>
 
 
-  <button
-    id="goCalendar"
-    type="button"
-  >
+  <button id="goCalendar" type="button">
     ♡ Open Calendar
   </button>
 
@@ -186,19 +164,13 @@
 
     <div class="month-row">
 
-      <button
-        id="prev"
-        type="button"
-      >
+      <button id="prev" type="button">
         ‹
       </button>
 
       <h1 id="month"></h1>
 
-      <button
-        id="next"
-        type="button"
-      >
+      <button id="next" type="button">
         ›
       </button>
 
@@ -218,10 +190,7 @@
     </div>
 
 
-    <div
-      id="days"
-      class="days"
-    ></div>
+    <div id="days" class="days"></div>
 
   </section>
 
@@ -238,10 +207,8 @@
     <div id="schedule"></div>
 
 
-    <form
-      id="scheduleForm"
-      class="addform schedule-form"
-    >
+    <form id="scheduleForm" class="addform">
+
 
       <!-- 時間 -->
 
@@ -249,38 +216,58 @@
         id="scheduleTime"
         type="time"
         required
-        aria-label="予定の時間"
       >
 
 
-      <!-- 絵文字 -->
+      <!-- 絵文字選択 -->
 
-      <input
+      <select
         id="scheduleEmoji"
-        type="text"
-        placeholder="♡"
-        maxlength="2"
-        aria-label="予定の絵文字"
+        aria-label="絵文字"
       >
 
+        <option value="♡">♡</option>
+        <option value="🎀">🎀</option>
+        <option value="💗">💗</option>
+        <option value="🩷">🩷</option>
+        <option value="🌷">🌷</option>
+        <option value="🌸">🌸</option>
+        <option value="🫧">🫧</option>
+        <option value="☁️">☁️</option>
+        <option value="☾">☾</option>
+        <option value="⭐">⭐</option>
+        <option value="✨">✨</option>
+        <option value="🪽">🪽</option>
+        <option value="🧸">🧸</option>
+        <option value="🍓">🍓</option>
+        <option value="🍰">🍰</option>
+        <option value="🛍️">🛍️</option>
+        <option value="📷">📷</option>
+        <option value="💄">💄</option>
+        <option value="🛁">🛁</option>
+        <option value="🧹">🧹</option>
+        <option value="🍽️">🍽️</option>
+        <option value="📚">📚</option>
+        <option value="💼">💼</option>
+        <option value="🎮">🎮</option>
+        <option value="💤">💤</option>
+        <option value="☕">☕</option>
+        <option value="🍀">🍀</option>
 
-      <!-- 予定の内容 -->
+      </select>
+
+
+      <!-- 予定内容 -->
 
       <input
         id="scheduleText"
         type="text"
         placeholder="何をする？"
         required
-        aria-label="予定の内容"
       >
 
 
-      <!-- 追加 -->
-
-      <button
-        type="submit"
-        aria-label="予定を追加"
-      >
+      <button type="submit">
         ＋
       </button>
 
@@ -301,10 +288,8 @@
     <div id="plan"></div>
 
 
-    <form
-      id="planForm"
-      class="addform plan-form"
-    >
+    <form id="planForm" class="addform">
+
 
       <!-- 時間 -->
 
@@ -312,38 +297,58 @@
         id="planTime"
         type="time"
         required
-        aria-label="予定の時間"
       >
 
 
-      <!-- 絵文字 -->
+      <!-- 絵文字選択 -->
 
-      <input
+      <select
         id="planEmoji"
-        type="text"
-        placeholder="♡"
-        maxlength="2"
-        aria-label="予定の絵文字"
+        aria-label="絵文字"
       >
 
+        <option value="♡">♡</option>
+        <option value="🎀">🎀</option>
+        <option value="💗">💗</option>
+        <option value="🩷">🩷</option>
+        <option value="🌷">🌷</option>
+        <option value="🌸">🌸</option>
+        <option value="🫧">🫧</option>
+        <option value="☁️">☁️</option>
+        <option value="☾">☾</option>
+        <option value="⭐">⭐</option>
+        <option value="✨">✨</option>
+        <option value="🪽">🪽</option>
+        <option value="🧸">🧸</option>
+        <option value="🍓">🍓</option>
+        <option value="🍰">🍰</option>
+        <option value="🛍️">🛍️</option>
+        <option value="📷">📷</option>
+        <option value="💄">💄</option>
+        <option value="🛁">🛁</option>
+        <option value="🧹">🧹</option>
+        <option value="🍽️">🍽️</option>
+        <option value="📚">📚</option>
+        <option value="💼">💼</option>
+        <option value="🎮">🎮</option>
+        <option value="💤">💤</option>
+        <option value="☕">☕</option>
+        <option value="🍀">🍀</option>
 
-      <!-- 予定の内容 -->
+      </select>
+
+
+      <!-- 予定内容 -->
 
       <input
         id="planText"
         type="text"
         placeholder="何をする？"
         required
-        aria-label="予定の内容"
       >
 
 
-      <!-- 追加 -->
-
-      <button
-        type="submit"
-        aria-label="予定を追加"
-      >
+      <button type="submit">
         ＋
       </button>
 
@@ -364,47 +369,17 @@
 
     <div id="moodChoices">
 
-      <button
-        type="button"
-        data-mood="♡"
-      >
-        ♡
-      </button>
+      <button type="button" data-mood="♡">♡</button>
 
-      <button
-        type="button"
-        data-mood="୨୧"
-      >
-        ୨୧
-      </button>
+      <button type="button" data-mood="୨୧">୨୧</button>
 
-      <button
-        type="button"
-        data-mood="✧"
-      >
-        ✧
-      </button>
+      <button type="button" data-mood="✧">✧</button>
 
-      <button
-        type="button"
-        data-mood="☾"
-      >
-        ☾
-      </button>
+      <button type="button" data-mood="☾">☾</button>
 
-      <button
-        type="button"
-        data-mood="☁"
-      >
-        ☁
-      </button>
+      <button type="button" data-mood="☁">☁</button>
 
-      <button
-        type="button"
-        data-mood="𓂃"
-      >
-        𓂃
-      </button>
+      <button type="button" data-mood="𓂃">𓂃</button>
 
     </div>
 
@@ -445,10 +420,7 @@
     <div id="todos"></div>
 
 
-    <form
-      id="todoForm"
-      class="addform"
-    >
+    <form id="todoForm" class="addform">
 
       <input
         id="todoText"
@@ -561,7 +533,6 @@
 
 
 <script src="app.js"></script>
-
 
 </body>
 
