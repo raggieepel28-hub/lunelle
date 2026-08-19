@@ -5,14 +5,15 @@
 
 * {
   box-sizing: border-box;
+
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 }
 
 html {
   font-family:
-    "Hiragino Maru Gothic ProN",
-    "Yu Gothic",
-    "YuGothic",
-    "Meiryo",
+    "Zen Maru Gothic",
     sans-serif;
 }
 
@@ -61,8 +62,7 @@ header {
 
 .brand span {
   font-family:
-    "Hiragino Maru Gothic ProN",
-    "Yu Gothic",
+    "Zen Maru Gothic",
     sans-serif;
 }
 
@@ -117,7 +117,9 @@ header {
 
   color: #b28b9b;
 
-  font-family: inherit;
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 
   font-size: 12px;
 
@@ -374,7 +376,9 @@ main {
 
   color: #fff;
 
-  font-family: inherit;
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 
   font-size: 13px;
 
@@ -555,7 +559,8 @@ main {
 }
 
 input,
-textarea {
+textarea,
+select {
   border:
     1px solid
     #efd8e0;
@@ -566,7 +571,9 @@ textarea {
 
   color: #806673;
 
-  font-family: inherit;
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 
   font-size: 13px;
 
@@ -596,8 +603,19 @@ textarea {
   resize: vertical;
 }
 
+select {
+  min-width: 52px;
+
+  padding:
+    9px
+    6px;
+
+  appearance: auto;
+}
+
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: #d7a8b8;
 
   box-shadow:
@@ -605,9 +623,27 @@ textarea:focus {
     rgba(216,168,184,0.12);
 }
 
-.addform input:nth-child(2) {
-  flex: 1;
+
+/* 入力欄の幅 */
+
+.addform input[type="time"] {
+  width: 105px;
+
+  flex-shrink: 0;
 }
+
+.addform select {
+  width: 60px;
+
+  flex-shrink: 0;
+}
+
+.addform input[type="text"] {
+  flex: 1;
+
+  min-width: 0;
+}
+
 
 .addform button {
   width: 38px;
@@ -626,7 +662,9 @@ textarea:focus {
 
   font-size: 20px;
 
-  font-family: inherit;
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 
   cursor: pointer;
 }
@@ -671,7 +709,9 @@ textarea:focus {
 
   font-size: 18px;
 
-  font-family: inherit;
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 
   cursor: pointer;
 }
@@ -734,7 +774,9 @@ textarea:focus {
 
   font-size: 18px;
 
-  font-family: inherit;
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 }
 
 
@@ -764,7 +806,9 @@ textarea:focus {
 
   color: #bd8a9c;
 
-  font-family: inherit;
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 
   font-size: 20px;
 
@@ -935,18 +979,29 @@ footer {
     font-size: 17px;
   }
 
+  .addform input[type="time"] {
+    width: 95px;
+  }
+
+  .addform select {
+    width: 55px;
+  }
+
 }
 
 
 /* ==================================================
-   Cute font feeling
+   Cute font
 ================================================== */
 
 button,
 input,
 textarea,
-select {
-  font-family: inherit;
+select,
+option {
+  font-family:
+    "Zen Maru Gothic",
+    sans-serif;
 }
 
 ::placeholder {
