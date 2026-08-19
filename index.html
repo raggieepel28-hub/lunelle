@@ -17,7 +17,6 @@
 
 <link rel="manifest" href="manifest.json">
 
-<!-- ふわふわ丸文字 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -49,6 +48,7 @@
 </header>
 
 
+
 <nav id="tabs">
 
   <button
@@ -59,7 +59,6 @@
     ☾ Home
   </button>
 
-
   <button
     type="button"
     class="tab"
@@ -68,7 +67,6 @@
     ♡ Calendar
   </button>
 
-
   <button
     type="button"
     class="tab"
@@ -76,7 +74,6 @@
   >
     📝 Diary
   </button>
-
 
   <button
     type="button"
@@ -102,7 +99,6 @@
   class="page"
 >
 
-
   <div class="home-date">
 
     <div id="homeDate"></div>
@@ -116,7 +112,6 @@
   </div>
 
 
-
   <section class="card">
 
     <h2>♡ Today's Mood</h2>
@@ -126,7 +121,6 @@
     </div>
 
   </section>
-
 
 
   <section class="card">
@@ -140,7 +134,6 @@
   </section>
 
 
-
   <section class="card">
 
     <h2>☑ Today</h2>
@@ -150,13 +143,10 @@
     </div>
 
     <div class="home-progress">
-
       <div id="homeProgress"></div>
-
     </div>
 
   </section>
-
 
 
   <section class="card">
@@ -170,14 +160,12 @@
   </section>
 
 
-
   <button
     id="goCalendar"
     type="button"
   >
     ♡ Open Calendar
   </button>
-
 
 </section>
 
@@ -196,7 +184,6 @@
 
   <section class="card calendar-card">
 
-
     <div class="month-row">
 
       <button
@@ -206,9 +193,7 @@
         ‹
       </button>
 
-
       <h1 id="month"></h1>
-
 
       <button
         id="next"
@@ -218,7 +203,6 @@
       </button>
 
     </div>
-
 
 
     <div class="week">
@@ -234,18 +218,18 @@
     </div>
 
 
-
     <div
       id="days"
       class="days"
     ></div>
 
-
   </section>
 
 
 
-  <!-- Daily Schedule -->
+  <!-- =========================
+       DAILY SCHEDULE
+  ========================= -->
 
   <section class="card">
 
@@ -256,31 +240,47 @@
 
     <form
       id="scheduleForm"
-      class="addform"
+      class="addform schedule-form"
     >
+
+      <!-- 時間 -->
 
       <input
         id="scheduleTime"
         type="time"
         required
+        aria-label="予定の時間"
       >
 
 
-      <input
-        id="scheduleText"
-        placeholder="この時間にしたいこと"
-        required
-      >
-
+      <!-- 絵文字 -->
 
       <input
         id="scheduleEmoji"
+        type="text"
         placeholder="♡"
-        maxlength="4"
+        maxlength="2"
+        aria-label="予定の絵文字"
       >
 
 
-      <button type="submit">
+      <!-- 予定の内容 -->
+
+      <input
+        id="scheduleText"
+        type="text"
+        placeholder="何をする？"
+        required
+        aria-label="予定の内容"
+      >
+
+
+      <!-- 追加 -->
+
+      <button
+        type="submit"
+        aria-label="予定を追加"
+      >
         ＋
       </button>
 
@@ -290,7 +290,9 @@
 
 
 
-  <!-- Plan -->
+  <!-- =========================
+       TODAY'S PLAN
+  ========================= -->
 
   <section class="card">
 
@@ -301,31 +303,47 @@
 
     <form
       id="planForm"
-      class="addform"
+      class="addform plan-form"
     >
+
+      <!-- 時間 -->
 
       <input
         id="planTime"
         type="time"
         required
+        aria-label="予定の時間"
       >
 
 
-      <input
-        id="planText"
-        placeholder="この時間にしたいこと"
-        required
-      >
-
+      <!-- 絵文字 -->
 
       <input
         id="planEmoji"
+        type="text"
         placeholder="♡"
-        maxlength="4"
+        maxlength="2"
+        aria-label="予定の絵文字"
       >
 
 
-      <button type="submit">
+      <!-- 予定の内容 -->
+
+      <input
+        id="planText"
+        type="text"
+        placeholder="何をする？"
+        required
+        aria-label="予定の内容"
+      >
+
+
+      <!-- 追加 -->
+
+      <button
+        type="submit"
+        aria-label="予定を追加"
+      >
         ＋
       </button>
 
@@ -335,7 +353,9 @@
 
 
 
-  <!-- Mood -->
+  <!-- =========================
+       MOOD
+  ========================= -->
 
   <section class="card">
 
@@ -351,14 +371,12 @@
         ♡
       </button>
 
-
       <button
         type="button"
         data-mood="୨୧"
       >
         ୨୧
       </button>
-
 
       <button
         type="button"
@@ -367,7 +385,6 @@
         ✧
       </button>
 
-
       <button
         type="button"
         data-mood="☾"
@@ -375,14 +392,12 @@
         ☾
       </button>
 
-
       <button
         type="button"
         data-mood="☁"
       >
         ☁
       </button>
-
 
       <button
         type="button"
@@ -402,12 +417,13 @@
 
 
 
-  <!-- Diary -->
+  <!-- =========================
+       DIARY
+  ========================= -->
 
   <section class="card">
 
     <h2>📝 Today's Diary</h2>
-
 
     <textarea
       id="diary"
@@ -418,7 +434,9 @@
 
 
 
-  <!-- Todo -->
+  <!-- =========================
+       TODO
+  ========================= -->
 
   <section class="card">
 
@@ -434,10 +452,10 @@
 
       <input
         id="todoText"
+        type="text"
         placeholder="新しいTodo…"
         required
       >
-
 
       <button type="submit">
         ＋
@@ -449,12 +467,13 @@
 
 
 
-  <!-- Memo -->
+  <!-- =========================
+       MEMO
+  ========================= -->
 
   <section class="card">
 
     <h2>📝 Memo</h2>
-
 
     <textarea
       id="memo"
@@ -469,7 +488,7 @@
 
 
 <!-- =========================
-     DIARY
+     DIARY PAGE
 ========================= -->
 
 <section
@@ -477,7 +496,6 @@
   class="page"
   style="display:none"
 >
-
 
   <section class="card">
 
@@ -487,18 +505,16 @@
       little memories of your days ♡
     </p>
 
-
     <div id="diaryArchive"></div>
 
   </section>
-
 
 </section>
 
 
 
 <!-- =========================
-     OSHIKATSU
+     OSHIKATSU PAGE
 ========================= -->
 
 <section
@@ -507,33 +523,27 @@
   style="display:none"
 >
 
-
   <section class="card">
 
     <h2>୨୧ 推し活</h2>
-
 
     <p>
       推しとの毎日をかわいく記録しよう ♡
     </p>
 
-
     <div class="oshi-box">
       ♡　My Oshi
     </div>
 
-
     <div class="oshi-box">
       🎀　推し活 To Do
     </div>
-
 
     <div class="oshi-box">
       ✧　推し活 Memo
     </div>
 
   </section>
-
 
 </section>
 
