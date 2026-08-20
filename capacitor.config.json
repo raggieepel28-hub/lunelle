@@ -1,0 +1,9 @@
+{
+  "appId": "com.lunelle.app",
+  "appName": "Lunelle",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}
