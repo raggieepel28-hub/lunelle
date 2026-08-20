@@ -8,19 +8,35 @@ on:
       - master
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
 
     steps:
 
+      # -----------------------------
+      # GitHubからLunelleを取得
+      # -----------------------------
+
       - name: Checkout
         uses: actions/checkout@v4
+
+
+      # -----------------------------
+      # Node.js
+      # ※ cache は使わない
+      # -----------------------------
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+
+
+      # -----------------------------
+      # Java
+      # -----------------------------
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -28,21 +44,63 @@ jobs:
           distribution: temurin
           java-version: 21
 
+
+      # -----------------------------
+      # Android SDK
+      # -----------------------------
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+
+
+      # -----------------------------
+      # npm install
+      # -----------------------------
 
       - name: Install dependencies
         run: npm install
 
+
+      # -----------------------------
+      # Lunelle用フォルダを作る
+      # -----------------------------
+
+      - name: Prepare web files
+        run: |
+          mkdir -p www
+          cp index.html www/index.html
+
+
+      # -----------------------------
+      # Androidプロジェクト作成
+      # -----------------------------
+
       - name: Create Android project
         run: npx cap add android
+
+
+      # -----------------------------
+      # LunelleをAndroidへ同期
+      # -----------------------------
 
       - name: Sync Lunelle
         run: npx cap sync android
 
+
+      # -----------------------------
+      # APKを作る
+      # -----------------------------
+
       - name: Build APK
         working-directory: android
-        run: chmod +x gradlew && ./gradlew assembleDebug
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+
+      # -----------------------------
+      # APKを保存
+      # -----------------------------
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
