@@ -5,17 +5,38 @@
 
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-  name="theme-color"
-  content="#e7bdcb"
->
+<meta name="theme-color" content="#e7bdcb">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="apple-mobile-web-app-title" content="Lunelle">
 
 <title>Lunelle ♡ your little days</title>
+
+
+<!-- ==================================================
+     Lunelle Icon
+================================================== -->
+
+<link
+  rel="icon"
+  type="image/svg+xml"
+  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='120' fill='%23f8dfe8'/%3E%3Ccircle cx='256' cy='245' r='155' fill='%23fff8fb'/%3E%3Ctext x='256' y='300' text-anchor='middle' font-size='190'%3E♡%3C/text%3E%3Ctext x='256' y='405' text-anchor='middle' font-size='48' font-family='sans-serif' fill='%23c994a8'%3ELunelle%3C/text%3E%3C/svg%3E"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='120' fill='%23f8dfe8'/%3E%3Ccircle cx='256' cy='245' r='155' fill='%23fff8fb'/%3E%3Ctext x='256' y='300' text-anchor='middle' font-size='190'%3E♡%3C/text%3E%3C/svg%3E"
+>
+
+
+<!-- ==================================================
+     Font
+================================================== -->
 
 <link
   rel="preconnect"
@@ -37,7 +58,7 @@
 <style>
 
 /* ==================================================
-   Lunelle
+   Base
 ================================================== */
 
 * {
@@ -79,7 +100,14 @@ body {
 
   line-height: 1.7;
 
-  letter-spacing: 0.03em;
+  letter-spacing: .03em;
+}
+
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -92,7 +120,7 @@ header {
   text-align: center;
 
   padding:
-    24px
+    23px
     15px
     12px;
 }
@@ -107,18 +135,16 @@ header {
 
   font-weight: 700;
 
-  letter-spacing: 0.08em;
+  letter-spacing: .08em;
 }
 
 .tagline {
-
-  margin-top: 0;
 
   color: #c8a5b2;
 
   font-size: 10px;
 
-  letter-spacing: 0.15em;
+  letter-spacing: .15em;
 }
 
 
@@ -152,13 +178,13 @@ header {
 
   min-width: 72px;
 
-  padding:
-    9px
-    7px;
-
   border: 0;
 
   border-radius: 18px;
+
+  padding:
+    9px
+    7px;
 
   background: #fff;
 
@@ -170,7 +196,7 @@ header {
 
   box-shadow:
     0 3px 12px
-    rgba(190,145,165,0.08);
+    rgba(190,145,165,.08);
 
   cursor: pointer;
 
@@ -220,13 +246,14 @@ main {
 
 .page {
   display: none;
-
-  animation:
-    pageFade .25s ease;
 }
 
 .page.active {
+
   display: block;
+
+  animation:
+    pageFade .25s ease;
 }
 
 @keyframes pageFade {
@@ -268,20 +295,6 @@ main {
     rgba(190,145,165,.09);
 }
 
-.card h2 {
-
-  margin:
-    0
-    0
-    14px;
-
-  color: #a9788c;
-
-  font-size: 15px;
-
-  font-weight: 700;
-}
-
 .section-title {
 
   display: flex;
@@ -290,7 +303,7 @@ main {
 
   gap: 6px;
 
-  margin-bottom: 12px;
+  margin-bottom: 13px;
 
   color: #a9788c;
 
@@ -307,9 +320,9 @@ main {
   text-align: center;
 
   padding:
+    8px
     10px
-    10px
-    18px;
+    17px;
 }
 
 #homeDate {
@@ -341,9 +354,9 @@ main {
 
 .home-box {
 
-  margin-top: 10px;
+  margin-top: 8px;
 
-  padding: 12px 14px;
+  padding: 13px 14px;
 
   border-radius: 16px;
 
@@ -354,7 +367,7 @@ main {
 
 #homeMood {
 
-  min-height: 42px;
+  min-height: 45px;
 
   display: flex;
 
@@ -411,7 +424,7 @@ main {
 
   min-height: 70px;
 
-  padding: 12px 14px;
+  padding: 13px;
 
   border-radius: 16px;
 
@@ -424,7 +437,61 @@ main {
   word-break: break-word;
 }
 
-#goCalendar {
+.home-oshi {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff7fa,
+      #fff0f5
+    );
+
+  color: #aa788d;
+}
+
+.home-oshi-heart {
+
+  width: 45px;
+
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f4d5df;
+
+  font-size: 22px;
+}
+
+.home-oshi-name {
+
+  font-weight: 700;
+}
+
+.home-oshi-sub {
+
+  color: #c39aaa;
+
+  font-size: 11px;
+}
+
+#goCalendar,
+#goOshi {
 
   width: 100%;
 
@@ -441,6 +508,15 @@ main {
   font-size: 13px;
 
   cursor: pointer;
+}
+
+#goOshi {
+
+  margin-top: 8px;
+
+  background: #f0ccd8;
+
+  color: #a9788c;
 }
 
 
@@ -514,7 +590,6 @@ main {
 }
 
 .days {
-
   gap: 4px;
 }
 
@@ -522,7 +597,7 @@ main {
 
   position: relative;
 
-  min-height: 68px;
+  min-height: 72px;
 
   padding: 6px 3px;
 
@@ -537,13 +612,6 @@ main {
   text-align: center;
 
   cursor: pointer;
-
-  transition:
-    transform .15s ease;
-}
-
-.calendar-day:active {
-  transform: scale(.95);
 }
 
 .calendar-day.today {
@@ -566,8 +634,6 @@ main {
 
   margin-top: 3px;
 
-  color: #d095a9;
-
   font-size: 14px;
 
   line-height: 1.1;
@@ -577,9 +643,22 @@ main {
 
   margin-top: 2px;
 
-  font-size: 13px;
+  font-size: 12px;
 
   line-height: 1.1;
+}
+
+.calendar-dot {
+
+  width: 5px;
+
+  height: 5px;
+
+  margin: 3px auto 0;
+
+  border-radius: 50%;
+
+  background: #d7a5b7;
 }
 
 
@@ -630,7 +709,7 @@ textarea {
 
   width: 100%;
 
-  min-height: 130px;
+  min-height: 125px;
 
   padding: 12px;
 
@@ -657,14 +736,14 @@ select:focus {
 
 .addform input[type="time"] {
 
-  width: 100px;
+  width: 90px;
 
   flex-shrink: 0;
 }
 
 .addform select {
 
-  width: 60px;
+  width: 58px;
 
   flex-shrink: 0;
 }
@@ -776,7 +855,6 @@ select:focus {
 }
 
 .schedule-emoji {
-
   font-size: 15px;
 }
 
@@ -829,8 +907,6 @@ select:focus {
   font-size: 20px;
 
   cursor: pointer;
-
-  transition: .15s ease;
 }
 
 #moodChoices button.active {
@@ -871,6 +947,15 @@ select:focus {
   font-weight: 700;
 }
 
+.diary-hint {
+
+  margin-top: 6px;
+
+  color: #c3a3af;
+
+  font-size: 11px;
+}
+
 #diaryArchive {
 
   display: flex;
@@ -882,15 +967,17 @@ select:focus {
 
 .diary-entry {
 
-  padding: 14px;
+  padding: 15px;
 
   border:
     1px solid
     #f2dce4;
 
-  border-radius: 17px;
+  border-radius: 18px;
 
   background: #fff7f9;
+
+  cursor: pointer;
 }
 
 .diary-entry strong {
@@ -914,34 +1001,44 @@ select:focus {
   word-break: break-word;
 }
 
+.diary-entry .diary-small {
+
+  margin-top: 7px;
+
+  color: #c39aaa;
+
+  font-size: 10px;
+}
+
 
 /* ==================================================
    Oshi
 ================================================== */
 
-.oshi-box {
+.oshi-profile {
 
-  padding: 16px;
+  padding: 17px;
 
   border:
     1px solid
     #f1d9e2;
 
-  border-radius: 18px;
+  border-radius: 20px;
 
   background:
     linear-gradient(
       135deg,
-      #fff7fa,
+      #fff8fa,
       #fff0f5
     );
-
-  color: #aa788d;
 }
 
 .oshi-label {
 
-  margin-bottom: 6px;
+  margin:
+    9px
+    0
+    5px;
 
   color: #b57e93;
 
@@ -950,21 +1047,59 @@ select:focus {
   font-weight: 700;
 }
 
+.oshi-label:first-child {
+  margin-top: 0;
+}
+
 .oshi-input {
 
   width: 100%;
 
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 
+.color-row {
 
-/* ==================================================
-   Buttons
-================================================== */
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+#oshiColor {
+
+  width: 55px;
+
+  height: 40px;
+
+  padding: 3px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+
+#oshiColorPreview {
+
+  flex: 1;
+
+  padding: 8px 10px;
+
+  border-radius: 12px;
+
+  background: #f8e3ea;
+
+  color: #aa788d;
+
+  font-size: 11px;
+}
 
 .pink-button {
 
   width: 100%;
+
+  margin-top: 10px;
 
   border: 0;
 
@@ -981,6 +1116,92 @@ select:focus {
   cursor: pointer;
 }
 
+.oshi-record {
+
+  padding: 14px;
+
+  margin-bottom: 9px;
+
+  border-radius: 17px;
+
+  background: #fff7f9;
+
+  border:
+    1px solid
+    #f2dce4;
+}
+
+.oshi-record-date {
+
+  color: #b57e93;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.oshi-record-text {
+
+  margin-top: 5px;
+
+  white-space: pre-wrap;
+
+  word-break: break-word;
+}
+
+.oshi-photo {
+
+  width: 100%;
+
+  max-height: 300px;
+
+  margin-top: 10px;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+}
+
+.photo-preview {
+
+  display: none;
+
+  width: 100%;
+
+  max-height: 220px;
+
+  margin-top: 10px;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+}
+
+.photo-label {
+
+  display: block;
+
+  padding: 12px;
+
+  border:
+    1px dashed
+    #ddb0bf;
+
+  border-radius: 15px;
+
+  background: #fff8fa;
+
+  color: #b57e93;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+#oshiPhoto {
+  display: none;
+}
+
 
 /* ==================================================
    Empty
@@ -988,7 +1209,7 @@ select:focus {
 
 .empty {
 
-  padding: 18px;
+  padding: 17px;
 
   color: #c3a3af;
 
@@ -1042,6 +1263,7 @@ footer {
   }
 
   .card {
+
     padding: 15px;
 
     border-radius: 20px;
@@ -1067,14 +1289,6 @@ footer {
     min-height: 48px;
 
     font-size: 17px;
-  }
-
-  .addform input[type="time"] {
-    width: 90px;
-  }
-
-  .addform select {
-    width: 55px;
   }
 
 }
@@ -1151,10 +1365,7 @@ footer {
      HOME
 ================================================== -->
 
-<section
-  id="home"
-  class="page active"
->
+<section id="home" class="page active">
 
   <div class="card">
 
@@ -1179,10 +1390,7 @@ footer {
       🌷 Today's Mood
     </div>
 
-    <div
-      id="homeMood"
-      class="home-box"
-    >
+    <div id="homeMood" class="home-box">
       今日の気分を選んでね ♡
     </div>
 
@@ -1195,10 +1403,7 @@ footer {
       ⏰ Next Schedule
     </div>
 
-    <div
-      id="homeNextSchedule"
-      class="home-box"
-    >
+    <div id="homeNextSchedule" class="home-box">
       予定はまだないよ ♡
     </div>
 
@@ -1216,9 +1421,7 @@ footer {
     </div>
 
     <div class="home-progress">
-
       <div id="homeProgress"></div>
-
     </div>
 
   </div>
@@ -1239,8 +1442,44 @@ footer {
 
   <div class="card">
 
+    <div class="section-title">
+      💗 My Oshi
+    </div>
+
+    <div class="home-oshi">
+
+      <div class="home-oshi-heart">
+        ♡
+      </div>
+
+      <div>
+
+        <div
+          id="homeOshiName"
+          class="home-oshi-name"
+        >
+          推しを登録してね ♡
+        </div>
+
+        <div class="home-oshi-sub">
+          今日も推し活しよ〜！
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
     <button id="goCalendar">
       📅 今日の予定を確認する
+    </button>
+
+    <button id="goOshi">
+      💗 推し活ページへ
     </button>
 
   </div>
@@ -1252,25 +1491,18 @@ footer {
      CALENDAR
 ================================================== -->
 
-<section
-  id="calendar"
-  class="page"
->
+<section id="calendar" class="page">
 
 
   <div class="card calendar-card">
 
     <div class="month-row">
 
-      <button id="prev">
-        ‹
-      </button>
+      <button id="prev">‹</button>
 
       <h1 id="month"></h1>
 
-      <button id="next">
-        ›
-      </button>
+      <button id="next">›</button>
 
     </div>
 
@@ -1288,20 +1520,19 @@ footer {
     </div>
 
 
-    <div
-      id="days"
-      class="days"
-    ></div>
+    <div id="days" class="days"></div>
 
   </div>
 
-
-  <!-- Selected date -->
 
   <div class="card">
 
     <div class="section-title">
       💕 <span id="selectedDateTitle"></span>
+    </div>
+
+    <div class="empty">
+      日付を選ぶと、その日のデータが全部ここに連携するよ ♡
     </div>
 
   </div>
@@ -1317,11 +1548,7 @@ footer {
 
     <div id="plan"></div>
 
-
-    <form
-      id="planForm"
-      class="addform"
-    >
+    <form id="planForm" class="addform">
 
       <input
         id="planTime"
@@ -1357,16 +1584,14 @@ footer {
         required
       >
 
-      <button type="submit">
-        ＋
-      </button>
+      <button type="submit">＋</button>
 
     </form>
 
   </div>
 
 
-  <!-- Daily Schedule -->
+  <!-- Schedule -->
 
   <div class="card">
 
@@ -1376,11 +1601,7 @@ footer {
 
     <div id="schedule"></div>
 
-
-    <form
-      id="scheduleForm"
-      class="addform"
-    >
+    <form id="scheduleForm" class="addform">
 
       <input
         id="scheduleTime"
@@ -1413,9 +1634,7 @@ footer {
         required
       >
 
-      <button type="submit">
-        ＋
-      </button>
+      <button type="submit">＋</button>
 
     </form>
 
@@ -1432,10 +1651,7 @@ footer {
 
     <div id="todos"></div>
 
-    <form
-      id="todoForm"
-      class="addform"
-    >
+    <form id="todoForm" class="addform">
 
       <input
         id="todoText"
@@ -1444,9 +1660,7 @@ footer {
         required
       >
 
-      <button type="submit">
-        ＋
-      </button>
+      <button type="submit">＋</button>
 
     </form>
 
@@ -1498,24 +1712,24 @@ footer {
 
 
 <!-- ==================================================
-     OSHIKATSU
+     OSHI
 ================================================== -->
 
-<section
-  id="oshi"
-  class="page"
->
+<section id="oshi" class="page">
+
+
+  <!-- Profile -->
 
   <div class="card">
 
     <div class="section-title">
-      💗 推し活
+      💗 My Oshi
     </div>
 
-    <div class="oshi-box">
+    <div class="oshi-profile">
 
       <div class="oshi-label">
-        ♡ My Oshi
+        ♡ 推しの名前
       </div>
 
       <input
@@ -1525,14 +1739,35 @@ footer {
         placeholder="推しの名前"
       >
 
+
       <div class="oshi-label">
-        ♡ 推し活メモ
+        ♡ 推しカラー
+      </div>
+
+      <div class="color-row">
+
+        <input
+          id="oshiColor"
+          type="color"
+          value="#e7bdcb"
+        >
+
+        <div id="oshiColorPreview">
+          推しカラーを選んでね ♡
+        </div>
+
+      </div>
+
+
+      <div class="oshi-label">
+        ♡ 推しメモ
       </div>
 
       <textarea
         id="oshiMemo"
-        placeholder="現場・グッズ・欲しいものなどを書こう ♡"
+        placeholder="好きなところ・記念日・現場メモなど ♡"
       ></textarea>
+
 
       <button
         id="saveOshi"
@@ -1546,34 +1781,98 @@ footer {
   </div>
 
 
+  <!-- Oshi Schedule -->
+
   <div class="card">
 
     <div class="section-title">
-      🎀 推し活 Todo
+      🎀 推し活予定
     </div>
 
-    <div id="oshiTodos"></div>
+    <div id="oshiSchedules"></div>
 
-    <form
-      id="oshiTodoForm"
-      class="addform"
-    >
+    <form id="oshiScheduleForm" class="addform">
 
       <input
-        id="oshiTodoText"
-        type="text"
-        placeholder="推し活でやること"
+        id="oshiScheduleTime"
+        type="time"
         required
       >
 
-      <button type="submit">
-        ＋
-      </button>
+      <input
+        id="oshiScheduleText"
+        type="text"
+        placeholder="推し活予定"
+        required
+      >
+
+      <button type="submit">＋</button>
 
     </form>
 
   </div>
 
+
+  <!-- Today's Record -->
+
+  <div class="card">
+
+    <div class="section-title">
+      💞 今日の推し活
+    </div>
+
+    <div
+      id="oshiRecordDate"
+      class="diary-date"
+    ></div>
+
+    <textarea
+      id="oshiRecord"
+      placeholder="今日の推し活はどうだった？♡
+現場・グッズ・動画・曲・推しの好きなところなど自由に書いてね"
+    ></textarea>
+
+
+    <label class="photo-label" for="oshiPhoto">
+      📷 写真を追加する ♡
+    </label>
+
+    <input
+      id="oshiPhoto"
+      type="file"
+      accept="image/*"
+    >
+
+    <img
+      id="photoPreview"
+      class="photo-preview"
+      alt="推し活写真"
+    >
+
+    <button
+      id="saveOshiRecord"
+      class="pink-button"
+    >
+      今日の推し活を保存 ♡
+    </button>
+
+  </div>
+
+
+  <!-- Record Archive -->
+
+  <div class="card">
+
+    <div class="section-title">
+      📖 推し活記録
+    </div>
+
+    <div id="oshiRecordArchive"></div>
+
+  </div>
+
+
+  <!-- Wish -->
 
   <div class="card">
 
@@ -1583,10 +1882,7 @@ footer {
 
     <div id="oshiWish"></div>
 
-    <form
-      id="oshiWishForm"
-      class="addform"
-    >
+    <form id="oshiWishForm" class="addform">
 
       <input
         id="oshiWishText"
@@ -1595,9 +1891,33 @@ footer {
         required
       >
 
-      <button type="submit">
-        ＋
-      </button>
+      <button type="submit">＋</button>
+
+    </form>
+
+  </div>
+
+
+  <!-- Oshi Todo -->
+
+  <div class="card">
+
+    <div class="section-title">
+      🎀 推し活 Todo
+    </div>
+
+    <div id="oshiTodos"></div>
+
+    <form id="oshiTodoForm" class="addform">
+
+      <input
+        id="oshiTodoText"
+        type="text"
+        placeholder="推し活でやること"
+        required
+      >
+
+      <button type="submit">＋</button>
 
     </form>
 
@@ -1610,10 +1930,7 @@ footer {
      DIARY
 ================================================== -->
 
-<section
-  id="diary"
-  class="page"
->
+<section id="diary" class="page">
 
 
   <div class="card">
@@ -1626,6 +1943,10 @@ footer {
       id="diaryDate"
       class="diary-date"
     ></div>
+
+    <div class="diary-hint">
+      カレンダーで選んだ日の日記を書けるよ ♡
+    </div>
 
     <br>
 
@@ -1675,67 +1996,7 @@ footer {
 <script>
 
 /* ==================================================
-   Basic
-================================================== */
-
-const monthEl =
-  document.getElementById("month");
-
-const daysEl =
-  document.getElementById("days");
-
-const prevBtn =
-  document.getElementById("prev");
-
-const nextBtn =
-  document.getElementById("next");
-
-const planEl =
-  document.getElementById("plan");
-
-const todoEl =
-  document.getElementById("todos");
-
-const memoEl =
-  document.getElementById("memo");
-
-const planForm =
-  document.getElementById("planForm");
-
-const todoForm =
-  document.getElementById("todoForm");
-
-const planEmoji =
-  document.getElementById("planEmoji");
-
-const scheduleEl =
-  document.getElementById("schedule");
-
-const scheduleForm =
-  document.getElementById("scheduleForm");
-
-const moodChoices =
-  document.querySelectorAll(
-    "#moodChoices button"
-  );
-
-const selectedMoodEl =
-  document.getElementById("selectedMood");
-
-const diaryEl =
-  document.getElementById("diary");
-
-const diaryArchive =
-  document.getElementById("diaryArchive");
-
-
-let currentDate = new Date();
-
-let selectedDate = new Date();
-
-
-/* ==================================================
-   Storage
+   Helpers
 ================================================== */
 
 function dateKey(date) {
@@ -1747,6 +2008,7 @@ function dateKey(date) {
   }`;
 
 }
+
 
 function getData(key) {
 
@@ -1764,6 +2026,7 @@ function getData(key) {
 
 }
 
+
 function saveData(key,data) {
 
   localStorage.setItem(
@@ -1772,6 +2035,72 @@ function saveData(key,data) {
   );
 
 }
+
+
+function escapeHTML(value) {
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function formatDate(date) {
+
+  return `${date.getFullYear()}年${
+    date.getMonth()+1
+  }月${
+    date.getDate()
+  }日`;
+
+}
+
+
+/* ==================================================
+   Dates
+================================================== */
+
+let currentDate = new Date();
+
+let selectedDate = new Date();
+
+
+/* ==================================================
+   Elements
+================================================== */
+
+const monthEl =
+  document.getElementById("month");
+
+const daysEl =
+  document.getElementById("days");
+
+const planEl =
+  document.getElementById("plan");
+
+const scheduleEl =
+  document.getElementById("schedule");
+
+const todoEl =
+  document.getElementById("todos");
+
+const memoEl =
+  document.getElementById("memo");
+
+const diaryEl =
+  document.getElementById("diary");
+
+const diaryArchive =
+  document.getElementById("diaryArchive");
+
+const moodChoices =
+  document.querySelectorAll(
+    "#moodChoices button"
+  );
 
 
 /* ==================================================
@@ -1789,32 +2118,40 @@ function showPage(pageId) {
 
   pages.forEach(page => {
 
-    page.classList.toggle(
-      "active",
-      page.id === pageId
-    );
+    page.classList.remove("active");
+
+    if (page.id === pageId) {
+      page.classList.add("active");
+    }
 
   });
+
 
   tabs.forEach(tab => {
 
-    tab.classList.toggle(
-      "active",
-      tab.dataset.page === pageId
-    );
+    tab.classList.remove("active");
+
+    if (tab.dataset.page === pageId) {
+      tab.classList.add("active");
+    }
 
   });
 
+
   if (pageId === "home") {
-
     renderHome();
+  }
 
+  if (pageId === "calendar") {
+    renderAllCalendar();
   }
 
   if (pageId === "diary") {
-
     renderDiary();
+  }
 
+  if (pageId === "oshi") {
+    renderOshi();
   }
 
 }
@@ -1835,7 +2172,20 @@ document
   .getElementById("goCalendar")
   .addEventListener("click", () => {
 
+    selectedDate = new Date();
+
+    currentDate = new Date();
+
     showPage("calendar");
+
+  });
+
+
+document
+  .getElementById("goOshi")
+  .addEventListener("click", () => {
+
+    showPage("oshi");
 
   });
 
@@ -1870,10 +2220,9 @@ function renderCalendar() {
     i++
   ) {
 
-    const empty =
-      document.createElement("div");
-
-    daysEl.appendChild(empty);
+    daysEl.appendChild(
+      document.createElement("div")
+    );
 
   }
 
@@ -1926,12 +2275,22 @@ function renderCalendar() {
     }
 
 
-    /* Plans */
-
     const plans =
       getData(`plans-${key}`);
 
-    if (plans.length > 0) {
+    const mood =
+      localStorage.getItem(`mood-${key}`) || "";
+
+    const diary =
+      localStorage.getItem(`diary-${key}`) || "";
+
+    const oshiRecord =
+      localStorage.getItem(
+        `oshi-record-${key}`
+      ) || "";
+
+
+    if (plans.length) {
 
       const emoji =
         document.createElement("div");
@@ -1946,13 +2305,6 @@ function renderCalendar() {
 
     }
 
-
-    /* Mood */
-
-    const mood =
-      localStorage.getItem(
-        `mood-${key}`
-      ) || "";
 
     if (mood) {
 
@@ -1970,6 +2322,23 @@ function renderCalendar() {
     }
 
 
+    if (
+      diary.trim() ||
+      oshiRecord.trim() ||
+      getData(`todos-${key}`).length
+    ) {
+
+      const dot =
+        document.createElement("div");
+
+      dot.className =
+        "calendar-dot";
+
+      cell.appendChild(dot);
+
+    }
+
+
     cell.addEventListener(
       "click",
       () => {
@@ -1977,7 +2346,11 @@ function renderCalendar() {
         selectedDate =
           new Date(date);
 
-        renderAll();
+        renderAllCalendar();
+
+        renderDiary();
+
+        renderOshi();
 
       }
     );
@@ -1990,39 +2363,9 @@ function renderCalendar() {
 }
 
 
-/* ==================================================
-   Date title
-================================================== */
-
-function renderDateTitle() {
-
-  const date =
-    selectedDate;
-
-  document
-    .getElementById("selectedDateTitle")
-    .textContent =
-      `${date.getMonth()+1}月${date.getDate()}日`;
-
-  document
-    .getElementById("diaryDate")
-    .textContent =
-      `${date.getFullYear()}年 ${
-        date.getMonth()+1
-      }月 ${
-        date.getDate()
-      }日`;
-
-}
-
-
-/* ==================================================
-   Month
-================================================== */
-
-prevBtn.addEventListener(
-  "click",
-  () => {
+document
+  .getElementById("prev")
+  .addEventListener("click", () => {
 
     currentDate.setMonth(
       currentDate.getMonth()-1
@@ -2030,13 +2373,12 @@ prevBtn.addEventListener(
 
     renderCalendar();
 
-  }
-);
+  });
 
 
-nextBtn.addEventListener(
-  "click",
-  () => {
+document
+  .getElementById("next")
+  .addEventListener("click", () => {
 
     currentDate.setMonth(
       currentDate.getMonth()+1
@@ -2044,8 +2386,35 @@ nextBtn.addEventListener(
 
     renderCalendar();
 
-  }
-);
+  });
+
+
+/* ==================================================
+   Selected Date
+================================================== */
+
+function renderDateTitle() {
+
+  const title =
+    document.getElementById(
+      "selectedDateTitle"
+    );
+
+  title.textContent =
+    formatDate(selectedDate);
+
+
+  document
+    .getElementById("diaryDate")
+    .textContent =
+      formatDate(selectedDate);
+
+
+  document
+    .getElementById("oshiRecordDate")
+    .textContent =
+      `${formatDate(selectedDate)} の推し活`;
+}
 
 
 /* ==================================================
@@ -2075,8 +2444,12 @@ function renderPlans() {
   }
 
 
-  plans.forEach(
-    (plan,index) => {
+  plans
+    .sort((a,b) =>
+      (a.time || "")
+        .localeCompare(b.time || "")
+    )
+    .forEach((plan,index) => {
 
       const item =
         document.createElement("div");
@@ -2086,13 +2459,19 @@ function renderPlans() {
 
       item.innerHTML = `
 
-        <span>${plan.emoji || "♡"}</span>
-
-        <span>${plan.time || ""}</span>
+        <span>${escapeHTML(
+          plan.emoji || "♡"
+        )}</span>
 
         <span>${escapeHTML(
-          plan.text || ""
+          plan.time || ""
         )}</span>
+
+        <span>
+          ${escapeHTML(
+            plan.text || ""
+          )}
+        </span>
 
         <button
           onclick="deletePlan(${index})"
@@ -2104,55 +2483,61 @@ function renderPlans() {
 
       planEl.appendChild(item);
 
-    }
-  );
+    });
 
 }
 
 
-planForm.addEventListener(
-  "submit",
-  event => {
+document
+  .getElementById("planForm")
+  .addEventListener(
+    "submit",
+    event => {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    const key =
-      dateKey(selectedDate);
+      const key =
+        dateKey(selectedDate);
 
-    const plans =
-      getData(`plans-${key}`);
+      const plans =
+        getData(`plans-${key}`);
 
-    plans.push({
+      plans.push({
 
-      time:
-        document
-          .getElementById("planTime")
-          .value,
+        time:
+          document
+            .getElementById("planTime")
+            .value,
 
-      text:
-        document
-          .getElementById("planText")
-          .value,
+        emoji:
+          document
+            .getElementById("planEmoji")
+            .value,
 
-      emoji:
-        planEmoji.value
+        text:
+          document
+            .getElementById("planText")
+            .value
 
-    });
+      });
 
-    saveData(
-      `plans-${key}`,
-      plans
-    );
+      saveData(
+        `plans-${key}`,
+        plans
+      );
 
-    planForm.reset();
+      event.target.reset();
 
-    planEmoji.value =
-      "♡";
+      document
+        .getElementById("planEmoji")
+        .value = "♡";
 
-    renderAll();
+      renderAllCalendar();
 
-  }
-);
+      renderHome();
+
+    }
+  );
 
 
 function deletePlan(index) {
@@ -2170,13 +2555,15 @@ function deletePlan(index) {
     plans
   );
 
-  renderAll();
+  renderAllCalendar();
+
+  renderHome();
 
 }
 
 
 /* ==================================================
-   Daily Schedule
+   Schedule
 ================================================== */
 
 function renderSchedule() {
@@ -2184,16 +2571,12 @@ function renderSchedule() {
   const key =
     dateKey(selectedDate);
 
-  let schedules =
-    getData(`schedules-${key}`);
-
-  schedules.sort(
-    (a,b) =>
-      (a.time || "")
-      .localeCompare(
-        b.time || ""
-      )
-  );
+  const schedules =
+    getData(`schedules-${key}`)
+      .sort((a,b) =>
+        (a.time || "")
+          .localeCompare(b.time || "")
+      );
 
   scheduleEl.innerHTML = "";
 
@@ -2222,11 +2605,15 @@ function renderSchedule() {
       item.innerHTML = `
 
         <span class="schedule-time">
-          ${schedule.time || ""}
+          ${escapeHTML(
+            schedule.time || ""
+          )}
         </span>
 
         <span class="schedule-emoji">
-          ${schedule.emoji || "♡"}
+          ${escapeHTML(
+            schedule.emoji || "♡"
+          )}
         </span>
 
         <span class="schedule-text">
@@ -2252,48 +2639,52 @@ function renderSchedule() {
 }
 
 
-scheduleForm.addEventListener(
-  "submit",
-  event => {
+document
+  .getElementById("scheduleForm")
+  .addEventListener(
+    "submit",
+    event => {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    const key =
-      dateKey(selectedDate);
+      const key =
+        dateKey(selectedDate);
 
-    const schedules =
-      getData(`schedules-${key}`);
+      const schedules =
+        getData(`schedules-${key}`);
 
-    schedules.push({
+      schedules.push({
 
-      time:
-        document
-          .getElementById("scheduleTime")
-          .value,
+        time:
+          document
+            .getElementById("scheduleTime")
+            .value,
 
-      text:
-        document
-          .getElementById("scheduleText")
-          .value,
+        emoji:
+          document
+            .getElementById("scheduleEmoji")
+            .value,
 
-      emoji:
-        document
-          .getElementById("scheduleEmoji")
-          .value
+        text:
+          document
+            .getElementById("scheduleText")
+            .value
 
-    });
+      });
 
-    saveData(
-      `schedules-${key}`,
-      schedules
-    );
+      saveData(
+        `schedules-${key}`,
+        schedules
+      );
 
-    scheduleForm.reset();
+      event.target.reset();
 
-    renderAll();
+      renderAllCalendar();
 
-  }
-);
+      renderHome();
+
+    }
+  );
 
 
 function deleteSchedule(index) {
@@ -2311,7 +2702,9 @@ function deleteSchedule(index) {
     schedules
   );
 
-  renderAll();
+  renderAllCalendar();
+
+  renderHome();
 
 }
 
@@ -2382,40 +2775,44 @@ function renderTodos() {
 }
 
 
-todoForm.addEventListener(
-  "submit",
-  event => {
+document
+  .getElementById("todoForm")
+  .addEventListener(
+    "submit",
+    event => {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    const key =
-      dateKey(selectedDate);
+      const key =
+        dateKey(selectedDate);
 
-    const todos =
-      getData(`todos-${key}`);
+      const todos =
+        getData(`todos-${key}`);
 
-    todos.push({
+      todos.push({
 
-      text:
-        document
-          .getElementById("todoText")
-          .value,
+        text:
+          document
+            .getElementById("todoText")
+            .value,
 
-      done:false
+        done:false
 
-    });
+      });
 
-    saveData(
-      `todos-${key}`,
-      todos
-    );
+      saveData(
+        `todos-${key}`,
+        todos
+      );
 
-    todoForm.reset();
+      event.target.reset();
 
-    renderAll();
+      renderAllCalendar();
 
-  }
-);
+      renderHome();
+
+    }
+  );
 
 
 function toggleTodo(index) {
@@ -2436,7 +2833,9 @@ function toggleTodo(index) {
     todos
   );
 
-  renderAll();
+  renderAllCalendar();
+
+  renderHome();
 
 }
 
@@ -2456,7 +2855,9 @@ function deleteTodo(index) {
     todos
   );
 
-  renderAll();
+  renderAllCalendar();
+
+  renderHome();
 
 }
 
@@ -2476,8 +2877,6 @@ memoEl.addEventListener(
       `memo-${key}`,
       memoEl.value
     );
-
-    renderHome();
 
   }
 );
@@ -2511,59 +2910,58 @@ function renderMood() {
     ) || "";
 
 
-  moodChoices.forEach(
-    button => {
+  moodChoices.forEach(button => {
 
-      button.classList.toggle(
-        "active",
-        button.dataset.mood === mood
-      );
-
-    }
-  );
-
-
-  selectedMoodEl.textContent =
-    mood
-      ? `今日の気分 ${mood}`
-      : "今日の気分を選んでね ♡";
-
-
-  const diaryMood =
-    document.getElementById(
-      "diaryMood"
+    button.classList.toggle(
+      "active",
+      button.dataset.mood === mood
     );
 
-  diaryMood.textContent =
-    mood
-      ? `今日のMood　${mood}`
-      : "まだMoodを選んでいないよ ♡";
+  });
+
+
+  document
+    .getElementById("selectedMood")
+    .textContent =
+      mood
+        ? `今日の気分 ${mood}`
+        : "今日の気分を選んでね ♡";
+
+
+  document
+    .getElementById("diaryMood")
+    .textContent =
+      mood
+        ? `今日のMood　${mood}`
+        : "まだMoodを選んでいないよ ♡";
 
 }
 
 
-moodChoices.forEach(
-  button => {
+moodChoices.forEach(button => {
 
-    button.addEventListener(
-      "click",
-      () => {
+  button.addEventListener(
+    "click",
+    () => {
 
-        const key =
-          dateKey(selectedDate);
+      const key =
+        dateKey(selectedDate);
 
-        localStorage.setItem(
-          `mood-${key}`,
-          button.dataset.mood
-        );
+      localStorage.setItem(
+        `mood-${key}`,
+        button.dataset.mood
+      );
 
-        renderAll();
+      renderMood();
 
-      }
-    );
+      renderCalendar();
 
-  }
-);
+      renderHome();
+
+    }
+  );
+
+});
 
 
 /* ==================================================
@@ -2582,6 +2980,10 @@ diaryEl.addEventListener(
       diaryEl.value
     );
 
+    renderDiaryArchive();
+
+    renderCalendar();
+
     renderHome();
 
   }
@@ -2590,6 +2992,8 @@ diaryEl.addEventListener(
 
 function renderDiary() {
 
+  renderDateTitle();
+
   const key =
     dateKey(selectedDate);
 
@@ -2597,7 +3001,6 @@ function renderDiary() {
     localStorage.getItem(
       `diary-${key}`
     ) || "";
-
 
   renderDiaryArchive();
 
@@ -2619,25 +3022,31 @@ function renderDiaryArchive() {
     i++
   ) {
 
-    const key =
+    const storageKey =
       localStorage.key(i);
 
     if (
-      key &&
-      key.startsWith("diary-")
+      storageKey &&
+      storageKey.startsWith("diary-")
     ) {
 
       const text =
-        localStorage.getItem(key);
+        localStorage.getItem(
+          storageKey
+        );
 
-      if (text && text.trim()) {
+      if (
+        text &&
+        text.trim()
+      ) {
 
         entries.push({
 
-          date:key.replace(
-            "diary-",
-            ""
-          ),
+          date:
+            storageKey.replace(
+              "diary-",
+              ""
+            ),
 
           text
 
@@ -2668,43 +3077,80 @@ function renderDiaryArchive() {
   }
 
 
-  entries.forEach(
-    entry => {
+  entries.forEach(entry => {
 
-      const div =
-        document.createElement("div");
+    const div =
+      document.createElement("div");
 
-      div.className =
-        "diary-entry";
+    div.className =
+      "diary-entry";
 
-      const mood =
-        localStorage.getItem(
-          `mood-${entry.date}`
-        ) || "";
+    const mood =
+      localStorage.getItem(
+        `mood-${entry.date}`
+      ) || "";
 
-      div.innerHTML = `
 
-        <strong>
-          ${entry.date}
-          ${mood ? "　"+mood : ""}
-        </strong>
+    div.innerHTML = `
 
-        <p>
-          ${escapeHTML(entry.text)}
-        </p>
+      <strong>
+        ${escapeHTML(
+          entry.date
+        )}
 
-      `;
+        ${mood
+          ? "　" + escapeHTML(mood)
+          : ""
+        }
+      </strong>
 
-      diaryArchive.appendChild(div);
+      <p>
+        ${escapeHTML(
+          entry.text
+        )}
+      </p>
 
-    }
-  );
+      <div class="diary-small">
+        ♡ タップするとこの日の日記を開く
+      </div>
+
+    `;
+
+
+    div.addEventListener(
+      "click",
+      () => {
+
+        const parts =
+          entry.date.split("-");
+
+        selectedDate =
+          new Date(
+            Number(parts[0]),
+            Number(parts[1])-1,
+            Number(parts[2])
+          );
+
+        currentDate =
+          new Date(selectedDate);
+
+        renderDiary();
+
+        renderCalendar();
+
+      }
+    );
+
+
+    diaryArchive.appendChild(div);
+
+  });
 
 }
 
 
 /* ==================================================
-   Oshi
+   Oshi Profile
 ================================================== */
 
 const oshiName =
@@ -2712,28 +3158,28 @@ const oshiName =
     "oshiName"
   );
 
+const oshiColor =
+  document.getElementById(
+    "oshiColor"
+  );
+
 const oshiMemo =
   document.getElementById(
     "oshiMemo"
   );
 
-const oshiTodos =
-  document.getElementById(
-    "oshiTodos"
-  );
 
-const oshiWish =
-  document.getElementById(
-    "oshiWish"
-  );
-
-
-function renderOshi() {
+function renderOshiProfile() {
 
   oshiName.value =
     localStorage.getItem(
       "oshi-name"
     ) || "";
+
+  oshiColor.value =
+    localStorage.getItem(
+      "oshi-color"
+    ) || "#e7bdcb";
 
   oshiMemo.value =
     localStorage.getItem(
@@ -2741,11 +3187,34 @@ function renderOshi() {
     ) || "";
 
 
-  renderOshiTodos();
-
-  renderOshiWish();
+  updateOshiColorPreview();
 
 }
+
+
+function updateOshiColorPreview() {
+
+  const color =
+    oshiColor.value;
+
+  const preview =
+    document.getElementById(
+      "oshiColorPreview"
+    );
+
+  preview.style.background =
+    color;
+
+  preview.textContent =
+    `推しカラー　${color}`;
+
+}
+
+
+oshiColor.addEventListener(
+  "input",
+  updateOshiColorPreview
+);
 
 
 document
@@ -2760,27 +3229,448 @@ document
       );
 
       localStorage.setItem(
+        "oshi-color",
+        oshiColor.value
+      );
+
+      localStorage.setItem(
         "oshi-memo",
         oshiMemo.value
       );
 
-      alert("推し活メモを保存したよ ♡");
+      renderOshi();
+
+      renderHome();
 
     }
   );
 
+
+/* ==================================================
+   Oshi Schedule
+================================================== */
+
+function renderOshiSchedules() {
+
+  const key =
+    dateKey(selectedDate);
+
+  const schedules =
+    getData(`oshi-schedules-${key}`)
+      .sort((a,b) =>
+        (a.time || "")
+          .localeCompare(b.time || "")
+      );
+
+  const el =
+    document.getElementById(
+      "oshiSchedules"
+    );
+
+  el.innerHTML = "";
+
+
+  if (!schedules.length) {
+
+    el.innerHTML =
+      `<div class="empty">
+        この日の推し活予定はまだないよ ♡
+      </div>`;
+
+    return;
+
+  }
+
+
+  schedules.forEach(
+    (schedule,index) => {
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "schedule-item";
+
+      item.innerHTML = `
+
+        <span class="schedule-time">
+          ${escapeHTML(
+            schedule.time
+          )}
+        </span>
+
+        <span>
+          🎀
+        </span>
+
+        <span class="schedule-text">
+          ${escapeHTML(
+            schedule.text
+          )}
+        </span>
+
+        <button
+          class="schedule-delete"
+          onclick="deleteOshiSchedule(${index})"
+        >
+          ×
+        </button>
+
+      `;
+
+      el.appendChild(item);
+
+    }
+  );
+
+}
+
+
+document
+  .getElementById("oshiScheduleForm")
+  .addEventListener(
+    "submit",
+    event => {
+
+      event.preventDefault();
+
+      const key =
+        dateKey(selectedDate);
+
+      const schedules =
+        getData(`oshi-schedules-${key}`);
+
+      schedules.push({
+
+        time:
+          document
+            .getElementById(
+              "oshiScheduleTime"
+            )
+            .value,
+
+        text:
+          document
+            .getElementById(
+              "oshiScheduleText"
+            )
+            .value
+
+      });
+
+      saveData(
+        `oshi-schedules-${key}`,
+        schedules
+      );
+
+      event.target.reset();
+
+      renderOshiSchedules();
+
+      renderCalendar();
+
+      renderHome();
+
+    }
+  );
+
+
+function deleteOshiSchedule(index) {
+
+  const key =
+    dateKey(selectedDate);
+
+  const schedules =
+    getData(`oshi-schedules-${key}`);
+
+  schedules.splice(index,1);
+
+  saveData(
+    `oshi-schedules-${key}`,
+    schedules
+  );
+
+  renderOshiSchedules();
+
+  renderCalendar();
+
+  renderHome();
+
+}
+
+
+/* ==================================================
+   Oshi Record + Photo
+================================================== */
+
+const oshiRecord =
+  document.getElementById(
+    "oshiRecord"
+  );
+
+const oshiPhoto =
+  document.getElementById(
+    "oshiPhoto"
+  );
+
+const photoPreview =
+  document.getElementById(
+    "photoPreview"
+  );
+
+
+let currentPhotoData = "";
+
+
+function renderOshiRecord() {
+
+  const key =
+    dateKey(selectedDate);
+
+  oshiRecord.value =
+    localStorage.getItem(
+      `oshi-record-${key}`
+    ) || "";
+
+
+  currentPhotoData =
+    localStorage.getItem(
+      `oshi-photo-${key}`
+    ) || "";
+
+
+  if (currentPhotoData) {
+
+    photoPreview.src =
+      currentPhotoData;
+
+    photoPreview.style.display =
+      "block";
+
+  } else {
+
+    photoPreview.removeAttribute(
+      "src"
+    );
+
+    photoPreview.style.display =
+      "none";
+
+  }
+
+}
+
+
+oshiPhoto.addEventListener(
+  "change",
+  event => {
+
+    const file =
+      event.target.files[0];
+
+    if (!file) return;
+
+
+    const reader =
+      new FileReader();
+
+
+    reader.onload = () => {
+
+      currentPhotoData =
+        reader.result;
+
+      photoPreview.src =
+        currentPhotoData;
+
+      photoPreview.style.display =
+        "block";
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+  }
+);
+
+
+document
+  .getElementById("saveOshiRecord")
+  .addEventListener(
+    "click",
+    () => {
+
+      const key =
+        dateKey(selectedDate);
+
+      localStorage.setItem(
+        `oshi-record-${key}`,
+        oshiRecord.value
+      );
+
+
+      if (currentPhotoData) {
+
+        localStorage.setItem(
+          `oshi-photo-${key}`,
+          currentPhotoData
+        );
+
+      }
+
+
+      oshiPhoto.value = "";
+
+      renderOshiRecordArchive();
+
+      renderCalendar();
+
+      renderHome();
+
+    }
+  );
+
+
+function renderOshiRecordArchive() {
+
+  const el =
+    document.getElementById(
+      "oshiRecordArchive"
+    );
+
+  el.innerHTML = "";
+
+  const records = [];
+
+
+  for (
+    let i=0;
+    i<localStorage.length;
+    i++
+  ) {
+
+    const key =
+      localStorage.key(i);
+
+    if (
+      key &&
+      key.startsWith(
+        "oshi-record-"
+      )
+    ) {
+
+      const text =
+        localStorage.getItem(key);
+
+      if (
+        text &&
+        text.trim()
+      ) {
+
+        const date =
+          key.replace(
+            "oshi-record-",
+            ""
+          );
+
+        records.push({
+
+          date,
+
+          text,
+
+          photo:
+            localStorage.getItem(
+              `oshi-photo-${date}`
+            ) || ""
+
+        });
+
+      }
+
+    }
+
+  }
+
+
+  records.sort(
+    (a,b) =>
+      b.date.localeCompare(a.date)
+  );
+
+
+  if (!records.length) {
+
+    el.innerHTML =
+      `<div class="empty">
+        まだ推し活記録がないよ ♡
+      </div>`;
+
+    return;
+
+  }
+
+
+  records.forEach(record => {
+
+    const div =
+      document.createElement("div");
+
+    div.className =
+      "oshi-record";
+
+    div.innerHTML = `
+
+      <div class="oshi-record-date">
+        ${escapeHTML(record.date)}
+      </div>
+
+      <div class="oshi-record-text">
+        ${escapeHTML(record.text)}
+      </div>
+
+      ${
+        record.photo
+          ? `
+            <img
+              class="oshi-photo"
+              src="${record.photo}"
+              alt="推し活写真"
+            >
+          `
+          : ""
+      }
+
+    `;
+
+    el.appendChild(div);
+
+  });
+
+}
+
+
+/* ==================================================
+   Oshi Todo
+================================================== */
 
 function renderOshiTodos() {
 
   const todos =
     getData("oshi-todos");
 
-  oshiTodos.innerHTML = "";
+  const el =
+    document.getElementById(
+      "oshiTodos"
+    );
+
+  el.innerHTML = "";
 
 
   if (!todos.length) {
 
-    oshiTodos.innerHTML =
+    el.innerHTML =
       `<div class="empty">
         推し活Todoはまだないよ ♡
       </div>`;
@@ -2808,9 +3698,7 @@ function renderOshiTodos() {
         >
 
         <span>
-          ${escapeHTML(
-            todo.text
-          )}
+          ${escapeHTML(todo.text)}
         </span>
 
         <button
@@ -2821,7 +3709,7 @@ function renderOshiTodos() {
 
       `;
 
-      oshiTodos.appendChild(item);
+      el.appendChild(item);
 
     }
   );
@@ -2871,6 +3759,8 @@ function toggleOshiTodo(index) {
   const todos =
     getData("oshi-todos");
 
+  if (!todos[index]) return;
+
   todos[index].done =
     !todos[index].done;
 
@@ -2910,12 +3800,17 @@ function renderOshiWish() {
   const wishes =
     getData("oshi-wishes");
 
-  oshiWish.innerHTML = "";
+  const el =
+    document.getElementById(
+      "oshiWish"
+    );
+
+  el.innerHTML = "";
 
 
   if (!wishes.length) {
 
-    oshiWish.innerHTML =
+    el.innerHTML =
       `<div class="empty">
         欲しいものはまだないよ ♡
       </div>`;
@@ -2950,7 +3845,7 @@ function renderOshiWish() {
 
       `;
 
-      oshiWish.appendChild(item);
+      el.appendChild(item);
 
     }
   );
@@ -3008,6 +3903,27 @@ function deleteOshiWish(index) {
 
 
 /* ==================================================
+   Oshi
+================================================== */
+
+function renderOshi() {
+
+  renderOshiProfile();
+
+  renderOshiSchedules();
+
+  renderOshiRecord();
+
+  renderOshiRecordArchive();
+
+  renderOshiTodos();
+
+  renderOshiWish();
+
+}
+
+
+/* ==================================================
    Home
 ================================================== */
 
@@ -3036,11 +3952,14 @@ function renderHome() {
     .textContent =
       `${today.getMonth()+1}月${today.getDate()}日`;
 
+
   document
     .getElementById("homeWeek")
     .textContent =
       `${weekdays[today.getDay()]}曜日`;
 
+
+  /* Mood */
 
   const mood =
     localStorage.getItem(
@@ -3051,40 +3970,62 @@ function renderHome() {
     .getElementById("homeMood")
     .textContent =
       mood
-        ? `今日の気分 ${mood}`
+        ? `今日の気分　${mood}`
         : "今日の気分を選んでね ♡";
 
 
-  /* Next schedule */
+  /* Schedule */
 
   const schedules =
     getData(`schedules-${key}`)
-      .sort(
-        (a,b) =>
-          (a.time || "")
-          .localeCompare(
-            b.time || ""
-          )
+      .sort((a,b) =>
+        (a.time || "")
+          .localeCompare(b.time || "")
       );
+
+
+  const plans =
+    getData(`plans-${key}`)
+      .sort((a,b) =>
+        (a.time || "")
+          .localeCompare(b.time || "")
+      );
+
+
+  const allSchedules =
+    [
+      ...schedules.map(x => ({
+        time:x.time,
+        emoji:x.emoji,
+        text:x.text
+      })),
+      ...plans.map(x => ({
+        time:x.time,
+        emoji:x.emoji,
+        text:x.text
+      }))
+    ]
+    .filter(x => x.time)
+    .sort((a,b) =>
+      a.time.localeCompare(b.time)
+    );
 
 
   const now =
     new Date();
 
   const currentTime =
-    now.getHours()
-      .toString()
+    String(now.getHours())
       .padStart(2,"0")
     + ":"
-    + now.getMinutes()
-      .toString()
+    + String(now.getMinutes())
       .padStart(2,"0");
 
 
   const next =
-    schedules.find(
-      schedule =>
-        schedule.time >= currentTime
+    allSchedules.find(
+      item =>
+        item.time >= currentTime
     );
 
 
@@ -3094,10 +4035,8 @@ function renderHome() {
     )
     .textContent =
       next
-        ? `${next.emoji || "♡"} ${
-            next.time
-          }　${next.text}`
-        : schedules.length
+        ? `${next.emoji || "♡"} ${next.time}　${next.text}`
+        : allSchedules.length
           ? "今日の予定は全部終わったよ ♡"
           : "予定はまだないよ ♡";
 
@@ -3112,6 +4051,7 @@ function renderHome() {
       todo => todo.done
     ).length;
 
+
   document
     .getElementById(
       "homeTodoCount"
@@ -3124,6 +4064,7 @@ function renderHome() {
     todos.length
       ? (done / todos.length) * 100
       : 0;
+
 
   document
     .getElementById(
@@ -3140,6 +4081,7 @@ function renderHome() {
       `diary-${key}`
     ) || "";
 
+
   document
     .getElementById(
       "homeDiary"
@@ -3148,30 +4090,46 @@ function renderHome() {
       diary ||
       "今日はどんな1日だった？ ♡";
 
+
+  /* Oshi */
+
+  const savedOshi =
+    localStorage.getItem(
+      "oshi-name"
+    ) || "";
+
+
+  document
+    .getElementById(
+      "homeOshiName"
+    )
+    .textContent =
+      savedOshi
+        ? savedOshi
+        : "推しを登録してね ♡";
+
+
+  const color =
+    localStorage.getItem(
+      "oshi-color"
+    ) || "#e7bdcb";
+
+
+  document
+    .querySelector(
+      ".home-oshi-heart"
+    )
+    .style.background =
+      color;
+
 }
 
 
 /* ==================================================
-   Escape
+   Calendar All
 ================================================== */
 
-function escapeHTML(value) {
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-/* ==================================================
-   Render all
-================================================== */
-
-function renderAll() {
+function renderAllCalendar() {
 
   renderCalendar();
 
@@ -3187,20 +4145,20 @@ function renderAll() {
 
   renderMood();
 
-  renderDiary();
-
-  renderOshi();
-
-  renderHome();
-
 }
 
 
 /* ==================================================
-   Start
+   Initial
 ================================================== */
 
-renderAll();
+renderAllCalendar();
+
+renderDiary();
+
+renderOshi();
+
+renderHome();
 
 </script>
 
